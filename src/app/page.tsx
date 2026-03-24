@@ -8,8 +8,9 @@ import Education from "@/components/Education"
 import Sidebar from "@/components/Sidebar"
 import About from "@/components/About"
 import TechStack from "@/components/TechStack"
-import { useCallback, useEffect, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useState, Suspense } from "react"
 import { AnimatePresence, motion } from "framer-motion"
+import { useSearchParams, useRouter, usePathname } from "next/navigation"
 
 const sections = [
   { id: "about", label: "About", slides: [About] },
@@ -38,8 +39,14 @@ function SectionWrapper({ children, sectionId }: { children: React.ReactNode; se
   );
 }
 
-export default function Home() {
-  const [activeSection, setActiveSection] = useState<string>(sections[0].id)
+function HomeContent() {
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  // Get initial tab from URL or default to first section
+  const initialTab = searchParams.get("tab") || sections[0].id
+  const [activeSection, setActiveSection] = useState<string>(initialTab)
   const [slideIndex, setSlideIndex] = useState(0)
 
   const activeConfig = useMemo(() => sections.find((section) => section.id === activeSection), [activeSection])
@@ -47,6 +54,14 @@ export default function Home() {
   const ActiveSlide = slides[slideIndex] ?? slides[0]
   const hasPrevSlide = slideIndex > 0
   const hasNextSlide = slideIndex < slides.length - 1
+
+  // Synchronize state with URL parameter on mount and when searchParams change
+  useEffect(() => {
+    const tab = searchParams.get("tab")
+    if (tab && sections.some(s => s.id === tab)) {
+      setActiveSection(tab)
+    }
+  }, [searchParams])
 
   useEffect(() => {
     setSlideIndex(0)
@@ -75,15 +90,21 @@ export default function Home() {
     return () => window.removeEventListener("keydown", handler)
   }, [goToSlide])
 
+  const handleSelectSection = (id: string) => {
+    setActiveSection(id)
+    setSlideIndex(0)
+    // Update URL with the new tab
+    const params = new URLSearchParams(searchParams.toString())
+    params.set("tab", id)
+    router.push(`${pathname}?${params.toString()}`, { scroll: false })
+  }
+
   return (
     <div className="font-sans min-h-screen overflow-hidden">
       <div className="w-full grid grid-cols-1 md:grid-cols-[300px_1fr] gap-2 sm:gap-6 min-h-screen">
         <Sidebar
           activeSection={activeSection}
-          onSelect={(id) => {
-            setActiveSection(id)
-            setSlideIndex(0)
-          }}
+          onSelect={handleSelectSection}
         />
         <main className="relative mx-2 sm:mx-4 lg:mx-2 min-h-screen overflow-hidden">
           <AnimatePresence mode="wait">
@@ -118,5 +139,13 @@ export default function Home() {
         </main>
       </div>
     </div>
+  )
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#05060d]" />}>
+      <HomeContent />
+    </Suspense>
   )
 }
