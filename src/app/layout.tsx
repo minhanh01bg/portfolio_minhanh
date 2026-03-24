@@ -13,18 +13,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Minh Thuy | AI Engineer Portfolio",
+  title: "Minh Anh | AI Engineer Portfolio",
   description:
     "AI Engineer building LLM apps, automations, and data products.",
   openGraph: {
-    title: "Minh Thuy | AI Engineer Portfolio",
+    title: "Minh Anh | AI Engineer Portfolio",
     description:
       "AI Engineer building LLM apps, automations, and data products.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Minh Thuy | AI Engineer Portfolio",
+    title: "Minh Anh | AI Engineer Portfolio",
     description:
       "AI Engineer building LLM apps, automations, and data products.",
   },

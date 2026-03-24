@@ -40,8 +40,8 @@ const contactMethods = [
   },
   {
     label: "LinkedIn",
-    value: "your-linkedin-username",
-    href: "https://www.linkedin.com/in/your-linkedin-username",
+    value: "minh-anh-vu",
+    href: "https://www.linkedin.com/in/minh-anh-vu-a02868194",
     icon: LinkedinIcon,
   },
 ]
