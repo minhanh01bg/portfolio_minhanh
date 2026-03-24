@@ -25,11 +25,11 @@ const projects: Project[] = [
     impact: "Cuts recruiter triage time by 70%.",
   },
   {
-    title: "LLM Support Copilot",
-    description: "Retrieval-augmented chatbot with escalation tooling, analytics, and secure multi-tenant setup.",
-    tags: ["LangGraph", "FAISS", "MongoDB", "Next.js"],
-    impact: "Handled 65% of support tickets autonomously.",
-    href: "https://chatbot.physcode.com",
+    title: "Chatboz AI",
+    description: "AI assistant deeply integrated with LearnPress LMS, automating student support, guiding learning paths, and boosting course enrollments.",
+    tags: ["LangGraph", "RAG", "LearnPress", "Next.js"],
+    impact: "Automates 65% of support interactions and enhances student completion rates.",
+    href: "https://chatboz.com",
   },
   {
     title: "AI eKYC for Banking",
