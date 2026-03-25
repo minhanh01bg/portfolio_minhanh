@@ -26,14 +26,14 @@ function SectionWrapper({ children, sectionId }: { children: React.ReactNode; se
   return (
     <motion.div
       key={sectionId}
-      className="absolute inset-0 h-full w-full px-2 sm:px-6 lg:px-10"
+      className="absolute inset-0 w-full overflow-y-auto custom-scrollbar"
       initial={{ opacity: 0, x: 60 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -60 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="flex h-full w-full items-center justify-center overflow-hidden">
-        <div className="w-full">{children}</div>
+      <div className="flex min-h-full w-full items-start justify-center py-20 px-4 mt-8 sm:mt-0">
+        <div className="w-full max-w-5xl mx-auto">{children}</div>
       </div>
     </motion.div>
   );
@@ -100,13 +100,13 @@ function HomeContent() {
   }
 
   return (
-    <div className="font-sans min-h-screen overflow-hidden">
+    <div className="font-sans min-h-screen">
       <div className="w-full grid grid-cols-1 md:grid-cols-[300px_1fr] gap-2 sm:gap-6 min-h-screen">
         <Sidebar
           activeSection={activeSection}
           onSelect={handleSelectSection}
         />
-        <main className="relative mx-2 sm:mx-4 lg:mx-2 min-h-screen overflow-hidden">
+        <main className="relative min-h-screen overflow-y-auto">
           <AnimatePresence mode="wait">
             <SectionWrapper key={`${activeSection}-${slideIndex}`} sectionId={`${activeSection}-${slideIndex}`}>
               {ActiveSlide ? <ActiveSlide /> : null}

@@ -217,9 +217,9 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
   )
 
   const FooterNoCopyright = (
-    <div className="border-t border-black/10 dark:border-white/10 px-4 py-3">
-      <p className="text-center text-[10px] font-medium tracking-[0.14em] text-[--foreground]/35 dark:text-white/25">
-        Copyright © 2025 · Vũ Minh Anh
+    <div className="px-4 py-4 border-t border-black/10 dark:border-white/10">
+      <p className="text-center text-[10px] uppercase tracking-[0.15em] font-medium text-black/40 dark:text-white/30">
+        © 2026 Vũ Minh Anh
       </p>
     </div>
   )
@@ -227,20 +227,29 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
   return (
     <>
       {/* Mobile toggle button */}
-      <div className="md:hidden sticky top-4 mx-5 z-40 mb-2">
-        <div className="flex justify-start">
-          <Button
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            aria-controls="mobile-sidebar"
-            onClick={() => setOpen((v) => !v)}
-            variant="outline"
-            size="sm"
-            className="backdrop-blur-sm bg-background/60 border-[--foreground]/15 text-[--foreground]"
-          >
-            {open ? "Close" : "Menu"}
-          </Button>
-        </div>
+      <div className="md:hidden fixed top-6 right-6 z-50">
+        <Button
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-sidebar"
+          onClick={() => setOpen((v) => !v)}
+          variant="outline"
+          size="icon"
+          className="h-10 w-10 cursor-pointer rounded-full backdrop-blur-md bg-white/20 dark:bg-black/20 border-black/10 dark:border-white/10 shadow-xl text-[--foreground] dark:text-white"
+        >
+          {open ? (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          ) : (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          )}
+        </Button>
       </div>
 
       {/* Mobile drawer */}
