@@ -71,7 +71,7 @@ export default function Education() {
               </p>
             </div>
             <div className="lg:w-1/2">
-              <div className="relative overflow-hidden rounded-xl border border-white/15 bg-black/40">
+              <div className="relative overflow-hidden rounded-xl border border-white/15 bg-black/10 dark:bg-black/40">
                 <Image
                   src="/certificates/Vu Minh Anh Ubuntu with WSL Certificate.png"
                   alt="Ubuntu with WSL certificate"

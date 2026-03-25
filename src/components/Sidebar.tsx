@@ -198,8 +198,8 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
                   className={cn(
                     "rounded-full p-2 transition-all duration-300 ring-1 shadow-sm",
                     activeSection === item.id
-                      ? "scale-105 bg-gradient-to-br from-[#1f2933] via-[#151922] to-[#0c0f16] ring-white/15 text-white"
-                      : "bg-[#0b0e15] ring-white/5 text-white/60 group-hover:scale-105 group-hover:bg-[#141824]"
+                      ? "scale-105 bg-gradient-to-br from-black/15 via-black/10 to-black/5 dark:from-[#1f2933] dark:via-[#151922] dark:to-[#0c0f16] ring-black/15 dark:ring-white/15 text-[--foreground] dark:text-white"
+                      : "bg-black/5 dark:bg-[#0b0e15] ring-black/10 dark:ring-white/5 text-[--foreground]/60 dark:text-white/60 group-hover:scale-105 group-hover:bg-black/10 dark:group-hover:bg-[#141824]"
                   )}
                 >
                   {iconFor(item.id, activeSection === item.id)}
