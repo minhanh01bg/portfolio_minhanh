@@ -5,6 +5,7 @@ import { useId } from "react"
 import { useRef, useState } from "react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import ThemeToggle from "@/components/ThemeToggle"
 
 type NavItem = { id: string; label: string }
 const navItems: NavItem[] = [
@@ -44,6 +45,7 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
           <p className="text-lg font-semibold text-white">Minh Anh</p>
           <p className="text-sm text-white/70">AI Engineer · Product Builder</p>
         </div>
+        <ThemeToggle className="mt-1" />
         <div className="flex flex-wrap justify-center gap-2 text-xs text-white/70">
           <span className="rounded-full border border-white/20 px-3 py-1">Ha Noi</span>
           <span className="rounded-full border border-white/20 px-3 py-1">Open to work</span>
@@ -68,8 +70,8 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
                 <stop offset="100%" stopColor="#34d399" />
               </linearGradient>
             </defs>
-            <path d="M3 11l9-7 9 7" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M5 10v10h14V10" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M3 11l9-7 9 7" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M5 10v10h14V10" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         )
       case "about":
@@ -81,8 +83,8 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
                 <stop offset="100%" stopColor="#a78bfa" />
               </linearGradient>
             </defs>
-            <path d="M12 12a4 4 0 100-8 4 4 0 000 8z" stroke="currentColor" strokeWidth="1.7"/>
-            <path d="M4 20a8 8 0 0116 0" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
+            <path d="M12 12a4 4 0 100-8 4 4 0 000 8z" stroke="currentColor" strokeWidth="1.7" />
+            <path d="M4 20a8 8 0 0116 0" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
           </svg>
         )
       case "skills":
@@ -94,7 +96,7 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
                 <stop offset="100%" stopColor="#22c55e" />
               </linearGradient>
             </defs>
-            <path d="M12 3v4M12 17v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M1 12h4M19 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/>
+            <path d="M12 3v4M12 17v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M1 12h4M19 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
           </svg>
         )
       case "stack":
@@ -106,9 +108,9 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
                 <stop offset="100%" stopColor="#34d399" />
               </linearGradient>
             </defs>
-            <path d="M12 2l9 5-9 5-9-5 9-5z" stroke="currentColor" strokeWidth="1.7"/>
-            <path d="M21 12l-9 5-9-5" stroke="currentColor" strokeWidth="1.7"/>
-            <path d="M21 17l-9 5-9-5" stroke="currentColor" strokeWidth="1.7"/>
+            <path d="M12 2l9 5-9 5-9-5 9-5z" stroke="currentColor" strokeWidth="1.7" />
+            <path d="M21 12l-9 5-9-5" stroke="currentColor" strokeWidth="1.7" />
+            <path d="M21 17l-9 5-9-5" stroke="currentColor" strokeWidth="1.7" />
           </svg>
         )
       case "experience":
@@ -120,8 +122,8 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
                 <stop offset="100%" stopColor="#8b5cf6" />
               </linearGradient>
             </defs>
-            <rect x="3" y="7" width="18" height="12" rx="2" stroke="currentColor" strokeWidth="1.7"/>
-            <path d="M8 7V6a3 3 0 013-3h2a3 3 0 013 3v1" stroke="currentColor" strokeWidth="1.7"/>
+            <rect x="3" y="7" width="18" height="12" rx="2" stroke="currentColor" strokeWidth="1.7" />
+            <path d="M8 7V6a3 3 0 013-3h2a3 3 0 013 3v1" stroke="currentColor" strokeWidth="1.7" />
           </svg>
         )
       case "education":
@@ -133,8 +135,8 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
                 <stop offset="100%" stopColor="#38bdf8" />
               </linearGradient>
             </defs>
-            <path d="M3 9l9-4 9 4-9 4-9-4z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/>
-            <path d="M7 12v4c0 1.66 2.69 3 6 3s6-1.34 6-3v-4" stroke="currentColor" strokeWidth="1.7"/>
+            <path d="M3 9l9-4 9 4-9 4-9-4z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+            <path d="M7 12v4c0 1.66 2.69 3 6 3s6-1.34 6-3v-4" stroke="currentColor" strokeWidth="1.7" />
           </svg>
         )
       case "projects":
@@ -146,8 +148,8 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
                 <stop offset="100%" stopColor="#60a5fa" />
               </linearGradient>
             </defs>
-            <rect x="3" y="4" width="18" height="16" rx="3" stroke="currentColor" strokeWidth="1.7"/>
-            <path d="M3 9h18" stroke="currentColor" strokeWidth="1.7"/>
+            <rect x="3" y="4" width="18" height="16" rx="3" stroke="currentColor" strokeWidth="1.7" />
+            <path d="M3 9h18" stroke="currentColor" strokeWidth="1.7" />
           </svg>
         )
       case "contact":
@@ -159,8 +161,8 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
                 <stop offset="100%" stopColor="#a78bfa" />
               </linearGradient>
             </defs>
-            <path d="M4 6l8 6 8-6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"/>
-            <rect x="4" y="6" width="16" height="12" rx="2" stroke="currentColor" strokeWidth="1.7"/>
+            <path d="M4 6l8 6 8-6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+            <rect x="4" y="6" width="16" height="12" rx="2" stroke="currentColor" strokeWidth="1.7" />
           </svg>
         )
       default:
