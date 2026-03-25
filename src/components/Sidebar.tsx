@@ -261,7 +261,7 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
             open ? "translate-x-0" : "-translate-x-full"
           )}
         >
-          <nav className="flex h-full flex-col rounded-[24px] border border-black/10 dark:border-white/10 bg-white/90 dark:bg-[#05060d]">
+          <nav className="flex h-full flex-col border border-black/10 dark:border-white/10 bg-white/90 dark:bg-[#05060d]">
             <div className="p-4">{InfoCard}</div>
             <div className="flex-1 overflow-auto">{NavList}</div>
           </nav>
@@ -270,7 +270,7 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
 
       {/* Desktop / tablet sidebar */}
       <aside className="hidden md:block sticky top-0 self-start h-screen w-full sm:w-[280px] lg:w-[320px]">
-        <nav className="relative flex h-full flex-col overflow-hidden rounded-[28px] border border-black/10 dark:border-white/10 bg-white/85 dark:bg-[#05060d]/80 shadow-[0_20px_80px_-40px_rgba(0,0,0,0.85)]">
+        <nav className="relative flex h-full flex-col overflow-hidden border border-black/10 dark:border-white/10 bg-white/85 dark:bg-[#05060d]/80 shadow-[0_20px_80px_-40px_rgba(0,0,0,0.85)]">
           <div className="p-4">{InfoCard}</div>
           <div className="flex-1 overflow-auto">{NavList}</div>
         </nav>
