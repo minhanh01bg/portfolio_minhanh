@@ -218,11 +218,8 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
 
   const FooterNoCopyright = (
     <div className="border-t border-black/10 dark:border-white/10 px-4 py-3">
-      <p className="text-center text-[11px] font-medium tracking-[0.12em] text-[--foreground]/55 dark:text-white/45">
-        Copyright © 2025
-      </p>
-      <p className="mt-0.5 text-center text-xs font-semibold tracking-[0.08em] text-[--foreground]/75 dark:text-white/70">
-        Vũ Minh Anh
+      <p className="text-center text-[10px] font-medium tracking-[0.14em] text-[--foreground]/35 dark:text-white/25">
+        Copyright © 2025 · Vũ Minh Anh
       </p>
     </div>
   )
