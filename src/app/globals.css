@@ -95,6 +95,15 @@ section[id] {
 ::-webkit-scrollbar-track { background: var(--surface-1); }
 ::-webkit-scrollbar-thumb { background: var(--surface-2); border-radius: 8px; }
 
+/* Stronger dark scrollbar contrast */
+.dark ::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.08); }
+.dark ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.28); }
+.dark ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.4); }
+
+/* Firefox */
+html { scrollbar-color: var(--surface-2) var(--surface-1); }
+.dark { scrollbar-color: rgba(255, 255, 255, 0.28) rgba(255, 255, 255, 0.08); }
+
 /* Theme-aware fallback for hard-coded dark utility classes in light mode */
 html:not(.dark) .text-white { color: rgb(17 24 39) !important; }
 html:not(.dark) .text-white\/80 { color: rgb(17 24 39 / 0.8) !important; }
