@@ -92,8 +92,25 @@ section[id] {
 
 /* Scrollbar styling inspired by portfolio theme */
 ::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--secondary-1); }
-::-webkit-scrollbar-thumb { background: var(--secondary-2); border-radius: 8px; }
+::-webkit-scrollbar-track { background: var(--surface-1); }
+::-webkit-scrollbar-thumb { background: var(--surface-2); border-radius: 8px; }
+
+/* Theme-aware fallback for hard-coded dark utility classes in light mode */
+html:not(.dark) .text-white { color: rgb(17 24 39) !important; }
+html:not(.dark) .text-white\/80 { color: rgb(17 24 39 / 0.8) !important; }
+html:not(.dark) .text-white\/75 { color: rgb(17 24 39 / 0.75) !important; }
+html:not(.dark) .text-white\/70 { color: rgb(17 24 39 / 0.7) !important; }
+html:not(.dark) .text-white\/65 { color: rgb(17 24 39 / 0.65) !important; }
+html:not(.dark) .text-white\/60 { color: rgb(17 24 39 / 0.6) !important; }
+html:not(.dark) .text-white\/50 { color: rgb(17 24 39 / 0.5) !important; }
+html:not(.dark) .text-white\/40 { color: rgb(17 24 39 / 0.4) !important; }
+
+html:not(.dark) .border-white\/10 { border-color: rgb(17 24 39 / 0.12) !important; }
+html:not(.dark) .border-white\/15 { border-color: rgb(17 24 39 / 0.16) !important; }
+html:not(.dark) .border-white\/20 { border-color: rgb(17 24 39 / 0.2) !important; }
+html:not(.dark) .border-white\/25 { border-color: rgb(17 24 39 / 0.25) !important; }
+html:not(.dark) .border-white\/30 { border-color: rgb(17 24 39 / 0.3) !important; }
+html:not(.dark) .border-white\/40 { border-color: rgb(17 24 39 / 0.4) !important; }
 
 /* Card glass effect */
 .glass {
