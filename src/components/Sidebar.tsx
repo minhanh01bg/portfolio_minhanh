@@ -30,8 +30,8 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
   const itemRefs = useRef<Record<string, HTMLButtonElement | null>>({})
 
   const InfoCard = (
-    <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/12 via-white/5 to-transparent p-5">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(139,92,246,0.35),transparent_60%)] opacity-70" aria-hidden />
+    <div className="relative overflow-hidden rounded-2xl border border-black/10 dark:border-white/10 bg-gradient-to-br from-black/5 via-black/[.02] to-transparent dark:from-white/12 dark:via-white/5 p-5">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(139,92,246,0.2),transparent_60%)] dark:bg-[radial-gradient(circle_at_top,rgba(139,92,246,0.35),transparent_60%)] opacity-70" aria-hidden />
       <div className="relative flex flex-col items-center gap-3 text-center">
         <Image
           src="/a5f91e31-86b7-43d2-b1b7-9dcaab74b830.png"
@@ -42,13 +42,13 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
           priority
         />
         <div>
-          <p className="text-lg font-semibold text-white">Minh Anh</p>
-          <p className="text-sm text-white/70">AI Engineer · Product Builder</p>
+          <p className="text-lg font-semibold text-[--foreground] dark:text-white">Minh Anh</p>
+          <p className="text-sm text-[--foreground]/70 dark:text-white/70">AI Engineer · Product Builder</p>
         </div>
         <ThemeToggle className="mt-1" />
-        <div className="flex flex-wrap justify-center gap-2 text-xs text-white/70">
-          <span className="rounded-full border border-white/20 px-3 py-1">Ha Noi</span>
-          <span className="rounded-full border border-white/20 px-3 py-1">Open to work</span>
+        <div className="flex flex-wrap justify-center gap-2 text-xs text-[--foreground]/70 dark:text-white/70">
+          <span className="rounded-full border border-black/15 dark:border-white/20 px-3 py-1">Ha Noi</span>
+          <span className="rounded-full border border-black/15 dark:border-white/20 px-3 py-1">Open to work</span>
         </div>
       </div>
     </div>
@@ -261,7 +261,7 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
             open ? "translate-x-0" : "-translate-x-full"
           )}
         >
-          <nav className="flex h-full flex-col rounded-[24px] border border-white/10 bg-[#05060d]">
+          <nav className="flex h-full flex-col rounded-[24px] border border-black/10 dark:border-white/10 bg-white/90 dark:bg-[#05060d]">
             <div className="p-4">{InfoCard}</div>
             <div className="flex-1 overflow-auto">{NavList}</div>
           </nav>
@@ -270,18 +270,18 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
 
       {/* Desktop / tablet sidebar */}
       <aside className="hidden md:block sticky top-0 self-start h-screen w-full sm:w-[280px] lg:w-[320px]">
-        <nav className="relative flex h-full flex-col overflow-hidden rounded-[28px] border border-white/10 bg-[#05060d]/80 shadow-[0_20px_80px_-40px_rgba(0,0,0,0.85)]">
+        <nav className="relative flex h-full flex-col overflow-hidden rounded-[28px] border border-black/10 dark:border-white/10 bg-white/85 dark:bg-[#05060d]/80 shadow-[0_20px_80px_-40px_rgba(0,0,0,0.85)]">
           <div className="p-4">{InfoCard}</div>
           <div className="flex-1 overflow-auto">{NavList}</div>
-          <div className="border-t border-white/10 px-6 py-5">
-            <div className="text-xs uppercase tracking-[0.3em] text-white/40">Current section</div>
-            <div className="mt-2 flex items-center justify-between text-sm text-white">
+          <div className="border-t border-black/10 dark:border-white/10 px-6 py-5">
+            <div className="text-xs uppercase tracking-[0.3em] text-[--foreground]/40 dark:text-white/40">Current section</div>
+            <div className="mt-2 flex items-center justify-between text-sm text-[--foreground] dark:text-white">
               <span>{navItems.find((n) => n.id === activeSection)?.label}</span>
               <span>
                 {navItems.findIndex((n) => n.id === activeSection) + 1}/{navItems.length}
               </span>
             </div>
-            <div className="mt-3 flex gap-2 text-xs text-white/70">
+            <div className="mt-3 flex gap-2 text-xs text-[--foreground]/70 dark:text-white/70">
               <button
                 type="button"
                 onClick={() => {
@@ -289,7 +289,7 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
                   const prevItem = navItems[currentIndex - 1]
                   if (prevItem) onSelect(prevItem.id)
                 }}
-                className="flex-1 rounded-xl border border-white/15 px-3 py-2 transition hover:border-white/40"
+                className="flex-1 rounded-xl border border-black/15 dark:border-white/15 px-3 py-2 transition hover:border-black/40 dark:hover:border-white/40"
               >
                 Prev
               </button>
@@ -300,7 +300,7 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
                   const nextItem = navItems[currentIndex + 1]
                   if (nextItem) onSelect(nextItem.id)
                 }}
-                className="flex-1 rounded-xl border border-white/15 px-3 py-2 transition hover:border-white/40"
+                className="flex-1 rounded-xl border border-black/15 dark:border-white/15 px-3 py-2 transition hover:border-black/40 dark:hover:border-white/40"
               >
                 Next
               </button>

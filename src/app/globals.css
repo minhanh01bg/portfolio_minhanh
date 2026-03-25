@@ -1,11 +1,19 @@
 @import "tailwindcss";
 
 :root {
+  --background: #f7f8fc;
+  --background-secondary: #eef1fb;
+  --foreground: #111827;
+  --accent-violet: #8b5cf6;
+  --accent-emerald: #34d399;
+  --surface-1: rgba(17, 24, 39, 0.04);
+  --surface-2: rgba(17, 24, 39, 0.08);
+}
+
+.dark {
   --background: #05060d;
   --background-secondary: #0f1122;
   --foreground: #f4f4f4;
-  --accent-violet: #8b5cf6;
-  --accent-emerald: #34d399;
   --surface-1: rgba(255, 255, 255, 0.04);
   --surface-2: rgba(255, 255, 255, 0.08);
 }
@@ -18,7 +26,7 @@
 }
 
 body {
-  background: #000000;
+  background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   min-height: 100vh;
