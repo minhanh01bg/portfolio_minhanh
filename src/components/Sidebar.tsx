@@ -273,39 +273,6 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
         <nav className="relative flex h-full flex-col overflow-hidden rounded-[28px] border border-black/10 dark:border-white/10 bg-white/85 dark:bg-[#05060d]/80 shadow-[0_20px_80px_-40px_rgba(0,0,0,0.85)]">
           <div className="p-4">{InfoCard}</div>
           <div className="flex-1 overflow-auto">{NavList}</div>
-          <div className="border-t border-black/10 dark:border-white/10 px-6 py-5">
-            <div className="text-xs uppercase tracking-[0.3em] text-[--foreground]/40 dark:text-white/40">Current section</div>
-            <div className="mt-2 flex items-center justify-between text-sm text-[--foreground] dark:text-white">
-              <span>{navItems.find((n) => n.id === activeSection)?.label}</span>
-              <span>
-                {navItems.findIndex((n) => n.id === activeSection) + 1}/{navItems.length}
-              </span>
-            </div>
-            <div className="mt-3 flex gap-2 text-xs text-[--foreground]/70 dark:text-white/70">
-              <button
-                type="button"
-                onClick={() => {
-                  const currentIndex = navItems.findIndex((item) => item.id === activeSection)
-                  const prevItem = navItems[currentIndex - 1]
-                  if (prevItem) onSelect(prevItem.id)
-                }}
-                className="flex-1 rounded-xl border border-black/15 dark:border-white/15 px-3 py-2 transition hover:border-black/40 dark:hover:border-white/40"
-              >
-                Prev
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  const currentIndex = navItems.findIndex((item) => item.id === activeSection)
-                  const nextItem = navItems[currentIndex + 1]
-                  if (nextItem) onSelect(nextItem.id)
-                }}
-                className="flex-1 rounded-xl border border-black/15 dark:border-white/15 px-3 py-2 transition hover:border-black/40 dark:hover:border-white/40"
-              >
-                Next
-              </button>
-            </div>
-          </div>
         </nav>
       </aside>
     </>
