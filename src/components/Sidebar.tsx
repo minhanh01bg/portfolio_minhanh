@@ -46,10 +46,10 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
           <p className="text-sm text-[--foreground]/70 dark:text-white/70">AI Engineer · Product Builder</p>
         </div>
         <ThemeToggle className="mt-1" />
-        <div className="flex flex-wrap justify-center gap-2 text-xs text-[--foreground]/70 dark:text-white/70">
+        {/* <div className="flex flex-wrap justify-center gap-2 text-xs text-[--foreground]/70 dark:text-white/70">
           <span className="rounded-full border border-black/15 dark:border-white/20 px-3 py-1">Ha Noi</span>
           <span className="rounded-full border border-black/15 dark:border-white/20 px-3 py-1">Open to work</span>
-        </div>
+        </div> */}
       </div>
     </div>
   )
@@ -216,6 +216,12 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
     </div>
   )
 
+  const FooterNoCopyright = (
+    <div className="border-t border-black/10 dark:border-white/10 px-4 py-3 text-center text-[11px] uppercase tracking-[0.25em] text-[--foreground]/50 dark:text-white/40">
+      No Copyright
+    </div>
+  )
+
   return (
     <>
       {/* Mobile toggle button */}
@@ -264,6 +270,7 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
           <nav className="flex h-full flex-col border border-black/10 dark:border-white/10 bg-white/90 dark:bg-[#05060d]">
             <div className="p-4">{InfoCard}</div>
             <div className="flex-1 overflow-auto">{NavList}</div>
+            {FooterNoCopyright}
           </nav>
         </aside>
       </div>
@@ -273,6 +280,7 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
         <nav className="relative flex h-full flex-col overflow-hidden border border-black/10 dark:border-white/10 bg-white/85 dark:bg-[#05060d]/80 shadow-[0_20px_80px_-40px_rgba(0,0,0,0.85)]">
           <div className="p-4">{InfoCard}</div>
           <div className="flex-1 overflow-auto">{NavList}</div>
+          {FooterNoCopyright}
         </nav>
       </aside>
     </>
