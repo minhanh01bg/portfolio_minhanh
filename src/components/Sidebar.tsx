@@ -42,8 +42,8 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
           priority
         />
         <div>
-          <p className="text-lg font-semibold text-[--foreground] dark:text-white">Minh Anh</p>
-          <p className="text-sm text-[--foreground]/70 dark:text-white/70">AI Engineer · Product Builder</p>
+          <p className="text-lg font-semibold text-[--foreground] dark:text-white">Vũ Minh Anh</p>
+          <p className="text-sm text-[--foreground]/70 dark:text-white/70">AI Engineer</p>
         </div>
         <ThemeToggle className="mt-1" />
         {/* <div className="flex flex-wrap justify-center gap-2 text-xs text-[--foreground]/70 dark:text-white/70">
@@ -217,8 +217,13 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
   )
 
   const FooterNoCopyright = (
-    <div className="border-t border-black/10 dark:border-white/10 px-4 py-3 text-center text-[11px] uppercase tracking-[0.25em] text-[--foreground]/50 dark:text-white/40">
-      No Copyright
+    <div className="border-t border-black/10 dark:border-white/10 px-4 py-3">
+      <p className="text-center text-[11px] font-medium tracking-[0.12em] text-[--foreground]/55 dark:text-white/45">
+        Copyright © 2025
+      </p>
+      <p className="mt-0.5 text-center text-xs font-semibold tracking-[0.08em] text-[--foreground]/75 dark:text-white/70">
+        Vũ Minh Anh
+      </p>
     </div>
   )
 
