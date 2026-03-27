@@ -1,8 +1,10 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { cardItem, sectionContainer } from "@/lib/motion"
+import { X, ZoomIn } from "lucide-react"
 
 type EducationItem = {
   degree: string
@@ -26,7 +28,33 @@ const education: EducationItem[] = [
   },
 ]
 
+type CertificationItem = {
+  title: string
+  issuer: string
+  description: string
+  image?: string
+  link?: string
+}
+
+const certifications: CertificationItem[] = [
+  {
+    title: "Ubuntu with WSL",
+    issuer: "Canonical",
+    description: "Official Ubuntu certification covering WSL setup, Linux tooling, and cross-platform developer environments.",
+    image: "/certificates/Vu Minh Anh Ubuntu with WSL Certificate.png",
+  },
+  {
+    title: "JavaScript Advanced",
+    issuer: "F8",
+    description: "Advanced JavaScript certification covering asynchronous programming, ES6+, DOM manipulation, and performance optimization.",
+    image: "/certificates/Vu Minh Anh JavaScript Advanced Certificate.png",
+    link: "/certificates/Vũ Minh Anh JavaScript Advanced Certificate.pdf",
+  },
+]
+
 export default function Education() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+
   return (
     <section id="education" className="w-full max-w-[72rem] mx-auto px-2 sm:px-4 lg:px-8 scroll-mt-24">
       <motion.div
@@ -61,30 +89,109 @@ export default function Education() {
           ))}
         </div>
 
-        <motion.div variants={cardItem} className="mt-10 rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-center">
-            <div className="lg:w-1/2 space-y-3">
-              <p className="text-xs uppercase tracking-[0.3em] text-white/60">Certification</p>
-              <h3 className="text-2xl font-semibold text-white">Ubuntu with WSL</h3>
-              <p className="text-white/70 text-sm">
-                Official Ubuntu certification covering WSL setup, Linux tooling, and cross-platform developer environments.
-              </p>
-            </div>
-            <div className="lg:w-1/2">
-              <div className="relative overflow-hidden rounded-xl border border-white/15 bg-black/10 dark:bg-black/40">
-                <Image
-                  src="/certificates/Vu Minh Anh Ubuntu with WSL Certificate.png"
-                  alt="Ubuntu with WSL certificate"
-                  width={900}
-                  height={600}
-                  className="w-full h-auto object-cover transition-transform duration-500 hover:scale-105"
-                  priority
-                />
+        <div className="mt-10 grid gap-6 md:grid-cols-1 lg:grid-cols-2">
+          {certifications.map((cert) => (
+            <motion.div
+              key={cert.title}
+              variants={cardItem}
+              className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur h-full"
+            >
+              <div className="flex flex-col gap-6 h-full">
+                <div className="space-y-3 flex-1">
+                  <div className="flex items-center justify-between">
+                    <p className="text-xs uppercase tracking-[0.3em] text-white/60">Certification</p>
+                    {cert.link && (
+                      <a
+                        href={cert.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-[10px] uppercase tracking-[0.2em] text-white/40 hover:text-white transition-colors"
+                      >
+                        View PDF ↗
+                      </a>
+                    )}
+                  </div>
+                  <h3 className="text-2xl font-semibold text-white leading-tight">{cert.title}</h3>
+                  <p className="text-white/60 text-xs italic">{cert.issuer}</p>
+                  <p className="text-white/70 text-sm leading-relaxed">
+                    {cert.description}
+                  </p>
+                </div>
+                {cert.image && (
+                  <button
+                    onClick={() => setSelectedImage(cert.image!)}
+                    className="group/btn relative overflow-hidden rounded-xl border border-white/15 bg-black/10 dark:bg-black/40 aspect-[3/2] cursor-zoom-in w-full"
+                  >
+                    <Image
+                      src={cert.image}
+                      alt={`${cert.title} certificate`}
+                      fill
+                      className="object-cover transition-all duration-500 group-hover/btn:scale-105 group-hover/btn:opacity-90"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/btn:opacity-100 transition-opacity bg-black/20 backdrop-blur-[2px]">
+                      <div className="bg-white/20 p-2 rounded-full border border-white/20">
+                        <ZoomIn className="w-5 h-5 text-white shadow-sm" />
+                      </div>
+                    </div>
+                  </button>
+                )}
+                {!cert.image && (
+                  <div className="flex items-center justify-center p-8 rounded-xl border border-dashed border-white/20 bg-white/[0.02]">
+                    <div className="text-center">
+                      <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/5 mb-3 text-white/40">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></svg>
+                      </div>
+                      <p className="text-xs text-white/30 tracking-wider uppercase font-medium">Digital Credentials</p>
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
-          </div>
-        </motion.div>
+            </motion.div>
+          ))}
+        </div>
       </motion.div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 md:p-10 backdrop-blur-sm cursor-zoom-out"
+          >
+            <motion.button
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage(null);
+              }}
+              className="absolute top-6 right-6 p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors z-[101]"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <X className="w-6 h-6" />
+            </motion.button>
+
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-5xl aspect-[3/2] overflow-hidden rounded-2xl shadow-2xl border border-white/10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={selectedImage}
+                alt="Certificate full view"
+                fill
+                className="object-contain"
+                priority
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }

@@ -2,20 +2,16 @@
 
 import { ProjectsIntro, ProjectsShowcase } from "@/components/Projects"
 import { ContactIntro, ContactFormSlide } from "@/components/Contact"
-import Skills from "@/components/Skills"
 import Experience from "@/components/Experience"
 import Education from "@/components/Education"
 import Sidebar from "@/components/Sidebar"
 import About from "@/components/About"
-import TechStack from "@/components/TechStack"
 import { useCallback, useEffect, useMemo, useState, Suspense } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { useSearchParams, useRouter, usePathname } from "next/navigation"
 
 const sections = [
   { id: "about", label: "About", slides: [About] },
-  { id: "skills", label: "Skills", slides: [Skills] },
-  { id: "stack", label: "Tech stack", slides: [TechStack] },
   { id: "experience", label: "Experience", slides: [Experience] },
   { id: "education", label: "Education", slides: [Education] },
   { id: "projects", label: "Projects", slides: [ProjectsIntro, ProjectsShowcase] },
@@ -101,7 +97,7 @@ function HomeContent() {
 
   return (
     <div className="font-sans min-h-screen">
-      <div className="w-full grid grid-cols-1 md:grid-cols-[300px_1fr] gap-2 sm:gap-6 min-h-screen">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-2 sm:gap-6 min-h-screen">
         <Sidebar
           activeSection={activeSection}
           onSelect={handleSelectSection}
