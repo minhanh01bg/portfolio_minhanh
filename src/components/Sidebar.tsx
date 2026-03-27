@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { Check } from "lucide-react"
 import { useId } from "react"
 import { useRef, useState } from "react"
 import { cn } from "@/lib/utils"
@@ -10,8 +11,6 @@ import ThemeToggle from "@/components/ThemeToggle"
 type NavItem = { id: string; label: string }
 const navItems: NavItem[] = [
   { id: "about", label: "About" },
-  { id: "skills", label: "Skills" },
-  { id: "stack", label: "Tech stack" },
   { id: "experience", label: "Experience" },
   { id: "education", label: "Education" },
   { id: "projects", label: "Projects" },
@@ -33,23 +32,24 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
     <div className="relative overflow-hidden rounded-2xl border border-black/10 dark:border-white/10 bg-gradient-to-br from-black/5 via-black/[.02] to-transparent dark:from-white/12 dark:via-white/5 p-5">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(139,92,246,0.2),transparent_60%)] dark:bg-[radial-gradient(circle_at_top,rgba(139,92,246,0.35),transparent_60%)] opacity-70" aria-hidden />
       <div className="relative flex flex-col items-center gap-3 text-center">
-        <Image
-          src="/a5f91e31-86b7-43d2-b1b7-9dcaab74b830.png"
-          alt="Avatar"
-          width={56}
-          height={56}
-          className="h-14 w-14 rounded-full object-cover ring-2 ring-violet-400/70 shadow-lg"
-          priority
-        />
+        <div className="relative">
+          <Image
+            src="/a5f91e31-86b7-43d2-b1b7-9dcaab74b830.png"
+            alt="Avatar"
+            width={74}
+            height={74}
+            className="h-20 w-20 rounded-full object-cover ring-2 ring-violet-400/70 shadow-lg"
+            priority
+          />
+          <span className="absolute -bottom-1 -right-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500 text-white ring-2 ring-white/80 dark:ring-[#0a0b14]/90 shadow-md">
+            <Check className="h-3.5 w-3.5" />
+          </span>
+        </div>
         <div>
-          <p className="text-lg font-semibold text-[--foreground] dark:text-white">Vũ Minh Anh</p>
-          <p className="text-sm text-[--foreground]/70 dark:text-white/70">AI Engineer</p>
+          <p className="text-xl font-semibold text-[--foreground] dark:text-white">Vũ Minh Anh</p>
+          <p className="text-sm text-[--foreground]/90 text-black/70 dark:text-white/70">AI Engineer</p>
         </div>
         <ThemeToggle className="mt-1" />
-        {/* <div className="flex flex-wrap justify-center gap-2 text-xs text-[--foreground]/70 dark:text-white/70">
-          <span className="rounded-full border border-black/15 dark:border-white/20 px-3 py-1">Ha Noi</span>
-          <span className="rounded-full border border-black/15 dark:border-white/20 px-3 py-1">Open to work</span>
-        </div> */}
       </div>
     </div>
   )
@@ -85,32 +85,6 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
             </defs>
             <path d="M12 12a4 4 0 100-8 4 4 0 000 8z" stroke="currentColor" strokeWidth="1.7" />
             <path d="M4 20a8 8 0 0116 0" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-          </svg>
-        )
-      case "skills":
-        return (
-          <svg viewBox="0 0 24 24" className={common} fill="none">
-            <defs>
-              <linearGradient id={gradId} x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#f59e0b" />
-                <stop offset="100%" stopColor="#22c55e" />
-              </linearGradient>
-            </defs>
-            <path d="M12 3v4M12 17v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M1 12h4M19 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-          </svg>
-        )
-      case "stack":
-        return (
-          <svg viewBox="0 0 24 24" className={common} fill="none">
-            <defs>
-              <linearGradient id={gradId} x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#60a5fa" />
-                <stop offset="100%" stopColor="#34d399" />
-              </linearGradient>
-            </defs>
-            <path d="M12 2l9 5-9 5-9-5 9-5z" stroke="currentColor" strokeWidth="1.7" />
-            <path d="M21 12l-9 5-9-5" stroke="currentColor" strokeWidth="1.7" />
-            <path d="M21 17l-9 5-9-5" stroke="currentColor" strokeWidth="1.7" />
           </svg>
         )
       case "experience":
@@ -188,7 +162,7 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
               className={cn(
                 "group flex w-full items-center justify-between rounded-2xl px-4 py-3 text-sm font-medium tracking-wide transition-all duration-300 border border-transparent",
                 activeSection === item.id
-                  ? "text-white bg-white/8 shadow-[0_15px_30px_-20px_rgba(0,0,0,0.85)] border-white/20"
+                  ? "text-white bg-white/8 shadow-[0_15px_30px_-20px_rgba(0,0,0,0.2)] border-white/20"
                   : "text-white/60 hover:text-white hover:translate-x-1 hover:border-white/10"
               )}
               aria-current={activeSection === item.id ? "page" : undefined}
@@ -227,7 +201,7 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
   return (
     <>
       {/* Mobile toggle button */}
-      <div className="md:hidden fixed top-6 right-6 z-50">
+      <div className="lg:hidden fixed top-6 right-6 z-50">
         <Button
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
@@ -258,7 +232,7 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
         role="dialog"
         aria-modal="true"
         className={cn(
-          "md:hidden fixed inset-0 z-40",
+          "lg:hidden fixed inset-0 z-40",
           open ? "pointer-events-auto" : "pointer-events-none"
         )}
       >
@@ -287,8 +261,8 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
       </div>
 
       {/* Desktop / tablet sidebar */}
-      <aside className="hidden md:block sticky top-0 self-start h-screen w-full sm:w-[280px] lg:w-[320px]">
-        <nav className="relative flex h-full flex-col overflow-hidden border border-black/10 dark:border-white/10 bg-white/85 dark:bg-[#05060d]/80 shadow-[0_20px_80px_-40px_rgba(0,0,0,0.85)]">
+      <aside className="hidden lg:block sticky top-0 self-start h-screen w-full sm:w-[280px] lg:w-[320px]">
+        <nav className="relative flex h-full flex-col overflow-hidden border border-black/10 dark:border-white/10 bg-white/85 dark:bg-[#05060d]/80 shadow-[0_20px_80px_-40px_rgba(0,0,0,0.3)]">
           <div className="p-4">{InfoCard}</div>
           <div className="flex-1 overflow-auto">{NavList}</div>
           {FooterNoCopyright}
@@ -297,4 +271,3 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
     </>
   )
 }
-
