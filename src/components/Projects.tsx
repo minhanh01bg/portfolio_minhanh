@@ -2,6 +2,9 @@
 
 import { motion, type Variants } from "framer-motion"
 import { cardItem } from "@/lib/motion"
+import { ExternalLink, Zap } from "lucide-react"
+import { useLanguage } from "@/contexts/LanguageContext"
+
 
 type Project = {
   title: string
@@ -25,36 +28,17 @@ const projects: Project[] = [
     impact: "Cuts recruiter triage time by 70%.",
   },
   {
-    title: "Chatboz AI",
-    description: "AI assistant deeply integrated with LearnPress LMS, automating student support, guiding learning paths, and boosting course enrollments.",
-    tags: ["LangGraph", "RAG", "LearnPress", "Next.js"],
-    impact: "Automates 65% of support interactions and enhances student completion rates.",
-    href: "https://chatboz.com",
-  },
-  {
     title: "AI eKYC for Banking",
     description: "Face verification, OCR, and fraud heuristics deployed for onboarding journeys.",
     tags: ["OpenCV", "PyTorch", "Docker", "FastAPI"],
     impact: "Reduced manual review by 55%.",
   },
-  {
-    title: "Mosyne — Marketing Photoshop",
-    description: "Diffusion-based assistant for creative teams: auto-masking, prompt templating, and batch renders.",
-    tags: ["Stable Diffusion", "Runpod", "ComfyUI", "OpenCV"],
-    impact: "5x faster creative iteration loops.",
-  },
-  {
-    title: "Eduprompt",
-    description: "AI learning companion blending RAG, analytics, and classroom workflows.",
-    tags: ["OpenAI", "LangChain", "FastAPI", "MongoDB"],
-    impact: "Improved student engagement by 40%.",
-  },
 ]
 
-const firstGroup = projects.slice(0, 3)
-const secondGroup = projects.slice(3)
+// Array partitions are now computed inside components based on context mapping.
 
-const slideShell = "w-full max-w-[72rem] mx-auto px-2 sm:px-4 lg:px-8"
+
+const slideShell = "w-full max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8"
 
 const slideVariant: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -70,17 +54,27 @@ const slideVariant: Variants = {
 }
 
 export function ProjectsIntro() {
+  const { t } = useLanguage()
+  const allProjects = t("projects.items") as any[]
+  const firstGroup = allProjects.slice(0, 3).map((p, i) => ({
+    ...p,
+    tags: projects[i]?.tags || [],
+    href: projects[i]?.href
+  }))
+
   return (
     <motion.div className={slideShell} variants={slideVariant} initial="hidden" animate="visible">
-      <header className="space-y-3">
-        <p className="text-sm uppercase tracking-[0.3em] text-white/60">Projects</p>
-        <h2 className="text-3xl sm:text-4xl font-semibold text-white">AI products across industries</h2>
-        <p className="text-base text-white/65 max-w-3xl">
-          Shipping copilots, automation, and platform tooling with measurable impact.
+      <header className="space-y-4">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-400 text-xs font-medium uppercase tracking-wider">
+          {t("projects.tag")}
+        </div>
+        <h2 className="text-4xl sm:text-5xl font-bold text-white tracking-tight">{t("projects.title")}</h2>
+        <p className="text-lg text-white/50 max-w-2xl leading-relaxed">
+          {t("projects.description")}
         </p>
       </header>
 
-      <div className="mt-10 grid gap-5 md:grid-cols-2">
+      <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {firstGroup.map((project) => (
           <ProjectCard key={project.title} project={project} />
         ))}
@@ -90,19 +84,26 @@ export function ProjectsIntro() {
 }
 
 export function ProjectsShowcase() {
+  const { t } = useLanguage()
+  const allProjects = t("projects.items") as any[]
+  const secondGroup = allProjects.slice(3).map((p, i) => ({
+    ...p,
+    tags: projects[i + 3]?.tags || [],
+    href: projects[i + 3]?.href
+  }))
+
   return (
     <motion.div className={slideShell} variants={slideVariant} initial="hidden" animate="visible">
-      <header className="space-y-2">
-        <p className="text-sm uppercase tracking-[0.3em] text-white/60">More builds</p>
-        <h3 className="text-2xl sm:text-3xl font-semibold text-white">Scale, compliance, and creativity</h3>
+      <header className="space-y-3">
+        <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight border-b border-white/5 pb-4">{t("projects.moreBuilds")}</h3>
       </header>
-      <div className="mt-10 grid gap-5 md:grid-cols-2">
+      <div className="mt-10 grid gap-6 md:grid-cols-2">
         {secondGroup.map((project) => (
           <ProjectCard key={project.title} project={project} />
         ))}
       </div>
-      <p className="mt-8 text-sm text-white/50">
-        Need details on a specific build? Happy to walk through architecture diagrams and results on a call.
+      <p className="mt-10 text-sm text-white/40 italic">
+        {t("projects.footer")}
       </p>
     </motion.div>
   )
@@ -110,7 +111,7 @@ export function ProjectsShowcase() {
 
 export default function Projects() {
   return (
-    <div className="space-y-12">
+    <div className="space-y-20">
       <ProjectsIntro />
       <ProjectsShowcase />
     </div>
@@ -121,34 +122,47 @@ function ProjectCard({ project }: { project: Project }) {
   return (
     <motion.article
       variants={cardItem}
-      whileHover={{ y: -6 }}
-      className="group rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition-all hover:border-violet-300/40 hover:bg-white/[0.05]"
+      whileHover={{ y: -8 }}
+      className="group relative flex flex-col h-full rounded-3xl border border-white/10 bg-white/[0.02] p-6 transition-all duration-300 hover:border-emerald-500/30 hover:bg-white/[0.04] shadow-xl overflow-hidden"
     >
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-          <p className="mt-2 text-sm text-white/70">{project.description}</p>
+      <div className="flex-1 space-y-4">
+        <div className="flex items-start justify-between gap-4">
+          <h3 className="text-xl font-bold text-white group-hover:text-white transition-colors tracking-tight">
+            {project.title}
+          </h3>
+          {project.href && (
+            <a
+              href={project.href}
+              target="_blank"
+              rel="noreferrer"
+              className="p-2 rounded-full bg-white/5 border border-white/10 text-white/40 hover:text-white hover:bg-emerald-500/10 hover:border-emerald-500/30 transition-all duration-300"
+            >
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          )}
         </div>
-        {project.href && (
-          <a
-            href={project.href}
-            target="_blank"
-            rel="noreferrer"
-            className="text-xs uppercase tracking-[0.2em] text-white/60 hover:text-white"
-          >
-            live ↗
-          </a>
-        )}
+
+        <p className="text-sm text-white/50 leading-relaxed italic">
+          {project.description}
+        </p>
+
+        <div className="flex flex-wrap gap-2 pt-2">
+          {project.tags.map((tag) => (
+            <span key={tag} className="px-2.5 py-1 rounded-md bg-white/5 border border-white/5 text-[10px] uppercase font-bold tracking-wider text-white/30 group-hover:text-white/50 transition-colors">
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
-      <div className="mt-4 flex flex-wrap gap-2">
-        {project.tags.map((tag) => (
-          <span key={tag} className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-xs text-white/80">
-            {tag}
-          </span>
-        ))}
+
+      <div className="mt-6 pt-6 border-t border-white/5 flex items-center gap-3">
+        <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
+          <Zap className="w-4 h-4 text-emerald-400" />
+        </div>
+        <p className="text-sm font-semibold text-emerald-400/90 leading-tight">
+          {project.impact}
+        </p>
       </div>
-      <p className="mt-4 text-sm text-emerald-300">{project.impact}</p>
     </motion.article>
   )
 }
-

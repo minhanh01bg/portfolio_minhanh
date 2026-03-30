@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { motion, type Variants } from "framer-motion"
 import { useState } from "react"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 const slideShell = "w-full max-w-[72rem] mx-auto px-2 sm:px-4 lg:px-8"
 
@@ -47,14 +48,15 @@ const contactMethods = [
 ]
 
 export function ContactIntro() {
+  const { t } = useLanguage()
+
   return (
     <motion.div className={slideShell} variants={fadeVariant} initial="hidden" animate="visible">
       <div className="space-y-4">
-        <p className="text-sm uppercase tracking-[0.3em] text-white/60">Contact</p>
-        <h2 className="text-3xl sm:text-4xl font-semibold text-white">{"Let’s build something together"}</h2>
+        <p className="text-sm uppercase tracking-[0.3em] text-white/60">{t("contact.tag")}</p>
+        <h2 className="text-3xl sm:text-4xl font-semibold text-white">{t("contact.title")}</h2>
         <p className="text-base text-white/70 max-w-2xl">
-          Prefer a quick call, async brief, or dropping me a note? Pick the channel that fits and we can dive into
-          roadmaps, scoping, or demos.
+          {t("contact.description")}
         </p>
       </div>
 
@@ -65,7 +67,7 @@ export function ContactIntro() {
             <div className="mt-3 flex items-center justify-between gap-3">
               <div>
                 <p className="text-lg font-semibold text-white">{value}</p>
-                <p className="text-sm text-white/60">Tap to connect</p>
+                <p className="text-sm text-white/60">{t("contact.tap")}</p>
               </div>
               <Button asChild variant="outline" className="rounded-full border-white/20 bg-white/5 text-white/80 hover:bg-white/10">
                 <a href={href} target="_blank" rel="noreferrer" aria-label={label}>
@@ -81,19 +83,20 @@ export function ContactIntro() {
 }
 
 export function ContactFormSlide() {
+  const { t } = useLanguage()
   const [formData, setFormData] = useState({ name: "", email: "", message: "" })
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const validate = () => {
     const nextErrors: Record<string, string> = {}
-    if (!formData.name.trim()) nextErrors.name = "Name is required"
+    if (!formData.name.trim()) nextErrors.name = t("contact.nameReq")
     if (!formData.email.trim()) {
-      nextErrors.email = "Email is required"
+      nextErrors.email = t("contact.emailReq")
     } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.email)) {
-      nextErrors.email = "Invalid email address"
+      nextErrors.email = t("contact.emailInvalid")
     }
-    if (!formData.message.trim()) nextErrors.message = "Message is required"
+    if (!formData.message.trim()) nextErrors.message = t("contact.messageReq")
     return nextErrors
   }
 
@@ -109,7 +112,7 @@ export function ContactFormSlide() {
     await new Promise((resolve) => setTimeout(resolve, 1000))
     setIsSubmitting(false)
     setFormData({ name: "", email: "", message: "" })
-    alert("Message sent successfully!")
+    alert(t("contact.success"))
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -121,14 +124,14 @@ export function ContactFormSlide() {
   return (
     <motion.div className={slideShell} variants={fadeVariant} initial="hidden" animate="visible">
       <div className="space-y-2">
-        <p className="text-sm uppercase tracking-[0.3em] text-white/60">Message</p>
-        <h3 className="text-3xl font-semibold text-white">Tell me about your idea</h3>
-        <p className="text-sm text-white/60">Response within 24h weekdays.</p>
+        <p className="text-sm uppercase tracking-[0.3em] text-white/60">{t("contact.messageTag")}</p>
+        <h3 className="text-3xl font-semibold text-white">{t("contact.messageTitle")}</h3>
+        <p className="text-sm text-white/60">{t("contact.messageDesc")}</p>
       </div>
 
       <form onSubmit={handleSubmit} className="mt-8 space-y-5 rounded-2xl border border-white/10 bg-white/[0.03] p-6">
         <Field
-          label="Name"
+          label={t("contact.formName")}
           id="contact-name"
           name="name"
           value={formData.name}
@@ -136,7 +139,7 @@ export function ContactFormSlide() {
           error={errors.name}
         />
         <Field
-          label="Email"
+          label={t("contact.formEmail")}
           id="contact-email"
           name="email"
           type="email"
@@ -146,7 +149,7 @@ export function ContactFormSlide() {
         />
         <Field
           as="textarea"
-          label="Message"
+          label={t("contact.formMessage")}
           id="contact-message"
           name="message"
           value={formData.message}
@@ -159,7 +162,7 @@ export function ContactFormSlide() {
           disabled={isSubmitting}
           className="w-full sm:w-auto bg-violet-600 text-white hover:bg-violet-500 transition-all duration-300 hover:scale-[1.02]"
         >
-          {isSubmitting ? "Sending..." : "Send message"}
+          {isSubmitting ? t("contact.sending") : t("contact.sendBtn")}
         </Button>
       </form>
     </motion.div>
