@@ -5,6 +5,8 @@ import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { cardItem, sectionContainer } from "@/lib/motion"
 import { X, ZoomIn } from "lucide-react"
+import { useLanguage } from "@/contexts/LanguageContext"
+
 
 type EducationItem = {
   degree: string
@@ -53,7 +55,16 @@ const certifications: CertificationItem[] = [
 ]
 
 export default function Education() {
+  const { t } = useLanguage()
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const localizedEducation = t("education.items") as any[]
+  const localizedCertifications = t("education.certificates") as any[]
+
+  const finalCerts = localizedCertifications.map((cert, idx) => ({
+    ...cert,
+    image: certifications[idx]?.image,
+    link: certifications[idx]?.link
+  }))
 
   return (
     <section id="education" className="w-full max-w-[72rem] mx-auto px-2 sm:px-4 lg:px-8 scroll-mt-24">
@@ -64,15 +75,15 @@ export default function Education() {
         className="space-y-10"
       >
         <header className="space-y-3">
-          <p className="text-sm uppercase tracking-[0.3em] text-white/60">Education</p>
-          <h2 className="text-3xl sm:text-4xl font-semibold text-white">Grounded in computer science fundamentals</h2>
+          <p className="text-sm uppercase tracking-[0.3em] text-white/60">{t("education.tag")}</p>
+          <h2 className="text-3xl sm:text-4xl font-semibold text-white">{t("education.title")}</h2>
           <p className="text-base text-white/65 max-w-3xl">
-            Strong algorithmic thinking plus practical experience make it easy for me to collaborate with research, data, and product teams alike.
+            {t("education.description")}
           </p>
         </header>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {education.map((item) => (
+          {localizedEducation.map((item) => (
             <motion.article
               key={item.degree}
               variants={cardItem}
@@ -80,7 +91,7 @@ export default function Education() {
             >
               <div className="flex items-center justify-between text-white/70">
                 <span className="text-xs uppercase tracking-[0.3em]">{item.period}</span>
-                <span className="text-xs rounded-full border border-white/20 px-3 py-1 text-white/60">Focus</span>
+                <span className="text-xs rounded-full border border-white/20 px-3 py-1 text-white/60">{t("education.focusLabel")}</span>
               </div>
               <h3 className="mt-4 text-2xl font-semibold text-white">{item.degree}</h3>
               <p className="text-sm text-white/70">{item.institution}</p>
@@ -90,7 +101,7 @@ export default function Education() {
         </div>
 
         <div className="mt-10 grid gap-6 md:grid-cols-1 lg:grid-cols-2">
-          {certifications.map((cert) => (
+          {finalCerts.map((cert) => (
             <motion.div
               key={cert.title}
               variants={cardItem}
@@ -99,7 +110,7 @@ export default function Education() {
               <div className="flex flex-col gap-6 h-full">
                 <div className="space-y-3 flex-1">
                   <div className="flex items-center justify-between">
-                    <p className="text-xs uppercase tracking-[0.3em] text-white/60">Certification</p>
+                    <p className="text-xs uppercase tracking-[0.3em] text-white/60">{t("education.certTag")}</p>
                     {cert.link && (
                       <a
                         href={cert.link}
@@ -107,7 +118,7 @@ export default function Education() {
                         rel="noreferrer"
                         className="text-[10px] uppercase tracking-[0.2em] text-white/40 hover:text-white transition-colors"
                       >
-                        View PDF ↗
+                        {t("education.viewPdf")}
                       </a>
                     )}
                   </div>
@@ -141,7 +152,7 @@ export default function Education() {
                       <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/5 mb-3 text-white/40">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></svg>
                       </div>
-                      <p className="text-xs text-white/30 tracking-wider uppercase font-medium">Digital Credentials</p>
+                      <p className="text-xs text-white/30 tracking-wider uppercase font-medium">{t("education.digitalCredentials")}</p>
                     </div>
                   </div>
                 )}

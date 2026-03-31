@@ -2,20 +2,18 @@
 
 import { motion } from "framer-motion"
 import { cardItem, fadeInUp, sectionContainer } from "@/lib/motion"
-import { Code2, Layers, Cpu, Cloud, Sparkles, Terminal, Database, Globe, Box, Github } from "lucide-react"
+import { Code2, Layers, Cpu, Cloud, Sparkles, Terminal, Database, Globe, Box, Github, Zap } from "lucide-react"
 import { cn } from "@/lib/utils"
 import {
   SiPython, SiTypescript, SiJavascript, SiCplusplus, SiReact,
   SiNextdotjs, SiFastapi, SiNodedotjs, SiTailwindcss, SiOpenai,
   SiPostgresql, SiMongodb, SiDocker, SiGit, SiLangchain, SiHuggingface,
-  SiPytorch
+  SiPytorch, SiVercel, SiLinux, SiNumpy, SiRedis, SiTensorflow
 } from "react-icons/si"
 import { FaAws } from "react-icons/fa"
+import { useLanguage } from "@/contexts/LanguageContext"
 
-const badges = [
-  { label: "Ha Noi, Vietnam", icon: LocationIcon },
-  { label: "Open to work", icon: StatusIcon },
-]
+// badges array removed, handled in component
 
 const skillCategories = [
   {
@@ -25,12 +23,12 @@ const skillCategories = [
       { name: "Python", icon: <SiPython className="w-4 h-4 text-[#3776AB]" /> },
       { name: "TypeScript", icon: <SiTypescript className="w-4 h-4 text-[#3178C6]" /> },
       { name: "JavaScript", icon: <SiJavascript className="w-4 h-4 text-[#F7DF1E]" /> },
-      { name: "SQL", icon: <SiPostgresql className="w-4 h-4 text-[#4169E1]" /> },
       { name: "C/C++", icon: <SiCplusplus className="w-4 h-4 text-[#00599C]" /> },
+      { name: "SQL", icon: <SiPostgresql className="w-4 h-4 text-[#4169E1]" /> },
     ]
   },
   {
-    title: "App Frameworks",
+    title: "Frameworks & Libs",
     icon: <Layers className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
     skills: [
       { name: "React", icon: <SiReact className="w-4 h-4 text-[#61DAFB]" /> },
@@ -38,18 +36,23 @@ const skillCategories = [
       { name: "FastAPI", icon: <SiFastapi className="w-4 h-4 text-[#05998B]" /> },
       { name: "Node.js", icon: <SiNodedotjs className="w-4 h-4 text-[#339933]" /> },
       { name: "Tailwind CSS", icon: <SiTailwindcss className="w-4 h-4 text-[#06B6D4]" /> },
+      { name: "NumPy / Pandas", icon: <SiNumpy className="w-4 h-4 text-[#013243]" /> },
     ]
   },
   {
-    title: "AI & Intelligence",
+    title: "AI & Data",
     icon: <Sparkles className="w-5 h-5 text-violet-600 dark:text-violet-400" />,
     skills: [
-      { name: "OpenAI", icon: <SiOpenai className="w-4 h-4 text-foreground dark:text-white" /> },
       { name: "LangChain", icon: <SiLangchain className="w-4 h-4 text-[#121D33] dark:text-white" /> },
       { name: "LangGraph", icon: <SiLangchain className="w-4 h-4 text-[#121D33] dark:text-white" /> },
-      { name: "Fine-tuning", icon: <SiHuggingface className="w-4 h-4 text-[#FFD21E]" /> },
+      { name: "OpenAI", icon: <SiOpenai className="w-4 h-4 text-foreground dark:text-white" /> },
+      { name: "PyTorch", icon: <SiPytorch className="w-4 h-4 text-[#EE4C2C]" /> },
+      { name: "TensorFlow", icon: <SiTensorflow className="w-4 h-4 text-[#FF6F00]" /> },
+      { name: "Hugging Face", icon: <SiHuggingface className="w-4 h-4 text-[#FFD21E]" /> },
+      { name: "Unsloth", icon: <Zap className="w-4 h-4 text-blue-500" /> },
       { name: "Vector DBs", icon: <Database className="w-4 h-4 text-rose-600 dark:text-rose-400" /> },
       { name: "MongoDB", icon: <SiMongodb className="w-4 h-4 text-[#47A248]" /> },
+      { name: "Redis", icon: <SiRedis className="w-4 h-4 text-[#DC382D]" /> },
     ]
   },
   {
@@ -58,6 +61,8 @@ const skillCategories = [
     skills: [
       { name: "Docker", icon: <SiDocker className="w-4 h-4 text-[#2496ED]" /> },
       { name: "AWS", icon: <FaAws className="w-4 h-4 text-[#FF9900]" /> },
+      { name: "Linux", icon: <SiLinux className="w-4 h-4 text-[#FCC624]" /> },
+      { name: "Vercel", icon: <SiVercel className="w-4 h-4 text-foreground dark:text-white" /> },
       { name: "Git", icon: <SiGit className="w-4 h-4 text-[#F05032]" /> },
       { name: "CI/CD", icon: <Github className="w-4 h-4 text-foreground/70 dark:text-white/70" /> },
     ]
@@ -65,6 +70,8 @@ const skillCategories = [
 ]
 
 export default function About() {
+  const { t } = useLanguage()
+
   return (
     <section id="about" className="w-full max-w-[72rem] mx-auto px-2 sm:px-6 lg:px-8 py-12 scroll-mt-24">
       <motion.div variants={sectionContainer} initial="hidden" animate="visible" className="space-y-20">
@@ -74,24 +81,25 @@ export default function About() {
           <motion.div variants={fadeInUp(0)} className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
             <div className="space-y-6 max-w-3xl">
               <h1 className="text-5xl sm:text-7xl font-bold leading-[1.05] text-foreground dark:text-white tracking-tight">
-                {"Hi, I'm Vũ Minh Anh"}
+                {t("about.greeting")}
               </h1>
               <div className="flex flex-wrap gap-2 pt-1">
-                {badges.map(({ label, icon: Icon }) => (
-                  <span key={label} className="inline-flex items-center gap-2 rounded-full bg-black/5 dark:bg-white/[0.04] px-4 py-2 text-sm text-foreground/80 dark:text-white/80 border border-black/5 dark:border-white/10 backdrop-blur-md hover:bg-black/10 dark:hover:bg-white/[0.08] hover:border-black/10 dark:hover:border-white/15 transition-all cursor-default font-medium">
-                    <Icon />
-                    {label}
-                  </span>
-                ))}
+                <span className="inline-flex items-center gap-2 rounded-full bg-black/5 dark:bg-white/[0.04] px-4 py-2 text-sm text-foreground/80 dark:text-white/80 border border-black/5 dark:border-white/10 backdrop-blur-md hover:bg-black/10 dark:hover:bg-white/[0.08] hover:border-black/10 dark:hover:border-white/15 transition-all cursor-default font-medium">
+                  <LocationIcon />
+                  {t("about.location")}
+                </span>
+                <span className="inline-flex items-center gap-2 rounded-full bg-black/5 dark:bg-white/[0.04] px-4 py-2 text-sm text-foreground/80 dark:text-white/80 border border-black/5 dark:border-white/10 backdrop-blur-md hover:bg-black/10 dark:hover:bg-white/[0.08] hover:border-black/10 dark:hover:border-white/15 transition-all cursor-default font-medium">
+                  <StatusIcon />
+                  {t("about.status")}
+                </span>
               </div>
               <p className="text-lg sm:text-xl text-foreground/60 dark:text-white/50 leading-relaxed font-light max-w-2xl text-pretty">
-                I specialize in building intelligent systems that prioritize performance and user experience.
-                From complex RAG architectures to polished interfaces, I deliver end-to-end AI solutions.
+                {t("about.description")}
               </p>
             </div>
           </motion.div>
 
-        
+
         </div>
 
         {/* Redesigned Premium Skills Section */}
@@ -100,11 +108,12 @@ export default function About() {
           className="space-y-12"
         >
           <div className="flex flex-col gap-3">
-            <h2 className="text-sm font-bold uppercase tracking-[0.4em] text-blue-600 dark:text-blue-500/80">Stack</h2>
-            <h3 className="text-4xl font-bold text-foreground dark:text-white tracking-tight">Skills & Technologies</h3>
+            <h3 className="flex items-center gap-3 text-4xl font-bold text-foreground dark:text-white tracking-tight">
+              <Layers className="w-9 h-9 text-blue-600 dark:text-blue-500" />
+              {t("about.skillsTitle")}
+            </h3>
             <p className="text-foreground/50 dark:text-white/40 text-lg max-w-2xl font-light leading-relaxed">
-              A comprehensive toolkit for building modern applications, with deep expertise in
-              AI orchestration and full-stack development.
+              {t("about.skillsDescription")}
             </p>
           </div>
 

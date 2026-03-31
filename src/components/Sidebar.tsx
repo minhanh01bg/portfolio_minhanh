@@ -7,6 +7,9 @@ import { useRef, useState } from "react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import ThemeToggle from "@/components/ThemeToggle"
+import LanguageToggle from "@/components/LanguageToggle"
+import { useLanguage } from "@/contexts/LanguageContext"
+
 
 type NavItem = { id: string; label: string }
 const navItems: NavItem[] = [
@@ -23,6 +26,7 @@ type SidebarProps = {
 }
 
 export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
+  const { t } = useLanguage()
   const gradientSuffix = useId()
   const gradientSuffixSafe = gradientSuffix.replace(/[^a-zA-Z0-9_-]/g, "")
   const [open, setOpen] = useState<boolean>(false)
@@ -47,9 +51,12 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
         </div>
         <div>
           <p className="text-xl font-semibold text-[--foreground] dark:text-white">Vũ Minh Anh</p>
-          <p className="text-sm text-[--foreground]/90 text-black/70 dark:text-white/70">AI Engineer</p>
+          <p className="text-sm text-[--foreground]/90 text-black/70 dark:text-white/70">{t("sidebar.role")}</p>
         </div>
-        <ThemeToggle className="mt-1" />
+        <div className="flex items-center gap-2 mt-1">
+          <ThemeToggle />
+          <LanguageToggle />
+        </div>
       </div>
     </div>
   )
@@ -179,7 +186,7 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
                   {iconFor(item.id, activeSection === item.id)}
                 </span>
                 <span className={cn("relative text-base", activeSection === item.id ? "text-white" : "text-white/70")}>
-                  {item.label}
+                  {t("sidebar." + item.id)}
                 </span>
               </span>
               <span className="text-[10px] uppercase tracking-[0.3em] text-white/40">0{navItems.indexOf(item) + 1}</span>
@@ -193,7 +200,7 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
   const FooterNoCopyright = (
     <div className="px-4 py-4 border-t border-black/10 dark:border-white/10">
       <p className="text-center text-[10px] uppercase tracking-[0.15em] font-medium text-black/40 dark:text-white/30">
-        © 2026 Vũ Minh Anh
+        {t("sidebar.copyright")}
       </p>
     </div>
   )
