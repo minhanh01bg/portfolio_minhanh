@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { createPortal } from "react-dom"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { cardItem, sectionContainer } from "@/lib/motion"
@@ -40,6 +41,11 @@ type CertificationItem = {
 
 const certifications: CertificationItem[] = [
   {
+    title: "Algorithm & Data Structure Fellowship",
+    issuer: "Samsung",
+    description: "Advanced graph theory, optimization, and large-scale problem solving.",
+  },
+  {
     title: "Ubuntu with WSL",
     issuer: "Canonical",
     description: "Official Ubuntu certification covering WSL setup, Linux tooling, and cross-platform developer environments.",
@@ -57,6 +63,11 @@ const certifications: CertificationItem[] = [
 export default function Education() {
   const { t } = useLanguage()
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
   const localizedEducation = t("education.items") as any[]
   const localizedCertifications = t("education.certificates") as any[]
 
@@ -163,46 +174,49 @@ export default function Education() {
       </motion.div>
 
       {/* Lightbox Modal */}
-      <AnimatePresence>
-        {selectedImage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedImage(null)}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 md:p-10 backdrop-blur-sm cursor-zoom-out"
-          >
-            <motion.button
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedImage(null);
-              }}
-              className="absolute top-6 right-6 p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors z-[101]"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <X className="w-6 h-6" />
-            </motion.button>
-
+      {mounted && createPortal(
+        <AnimatePresence>
+          {selectedImage && (
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-5xl aspect-[3/2] overflow-hidden rounded-2xl shadow-2xl border border-white/10"
-              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedImage(null)}
+              className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 md:p-10 backdrop-blur-sm cursor-zoom-out"
             >
-              <Image
-                src={selectedImage}
-                alt="Certificate full view"
-                fill
-                className="object-contain"
-                priority
-              />
+              <motion.button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedImage(null);
+                }}
+                className="absolute top-4 right-4 md:top-6 md:right-6 p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors z-[10000]"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <X className="w-6 h-6" />
+              </motion.button>
+
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                className="relative w-[90vw] h-[80vh] max-w-5xl max-h-[800px] overflow-hidden rounded-2xl shadow-2xl border border-white/10"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Image
+                  src={selectedImage}
+                  alt="Certificate full view"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </section>
   )
 }

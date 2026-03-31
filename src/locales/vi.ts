@@ -73,34 +73,6 @@ export const vi: typeof en = {
       },
       {
         role: "Kỹ sư AI",
-        company: "AI Soft",
-        location: "Hà Nội, Việt Nam",
-        employmentType: "Toàn thời gian",
-        workType: "Hybrid",
-        summary: "Xây dựng các hệ thống phát hiện bất thường đa phương thức bằng AI và thiết lập quy trình đánh giá khắt khe cho các mô hình ngôn ngữ lớn (LLMs).",
-        projects: [
-          {
-            name: "AI KC IoT",
-            description: "Hệ thống phát hiện đa phương thức cho bề mặt tấn công IoT, bao gồm tấn công từ chối dịch vụ (DDoS), dò cổng và brute-force.",
-            responsibilities: [
-              "Thiết kế và huấn luyện các mô hình phát hiện rủi ro đạt độ chính xác 98,4% trên 4 nhóm tấn công chính",
-              "Tiền xử lý và chuẩn hóa dữ liệu viễn trắc đa dạng để lập bản đồ các hành vi đe dọa trực tuyến",
-              "Tối ưu hóa hiệu năng suy luận (inference) đảm bảo tốc độ phát hiện theo thời gian thực trên các thiết bị tài nguyên thấp"
-            ]
-          },
-          {
-            name: "Nền tảng Đánh giá Model AI (LLM Evaluation)",
-            description: "Hệ thống benchmark và quy trình đánh giá định lượng chuyên sâu cho các AI Models & LLMs áp dụng vào thực tế.",
-            responsibilities: [
-              "Thiết lập bộ tiêu chí đánh giá chuyên biệt nhằm phát hiện ảo giác (hallucination) và đối soát độ chính xác của ngữ cảnh",
-              "Xây dựng kho dữ liệu gốc (golden datasets) và bộ test tự động để benchmark và so sánh chất lượng giữa các phiên bản model",
-              "Tích hợp đánh giá có con người tham gia (Human-in-the-loop) để liên tục tinh chỉnh (align) và cải thiện chất lượng sinh từ prompt"
-            ]
-          }
-        ]
-      },
-      {
-        role: "Kỹ sư AI",
         company: "Hyperlogy",
         location: "Hà Nội, Việt Nam",
         employmentType: "Toàn thời gian",
@@ -123,6 +95,34 @@ export const vi: typeof en = {
               "Phát triển pipeline nhận diện khuôn mặt ổn định, nhận diện chính xác kể cả khi nhân viên y tế đeo khẩu trang hoặc trong điều kiện thiếu sáng",
               "Tối ưu hóa các luồng suy luận trên biên (edge) nhằm đạt độ trễ cực thấp cho quá trình nhận diện luồng video với nhiều người cùng lúc",
               "Tích hợp luồng dữ liệu điểm danh theo thời gian thực vào hệ thống quản lý nhân sự tập trung của bệnh viện"
+            ]
+          }
+        ]
+      },
+      {
+        role: "Kỹ sư AI",
+        company: "AI Soft",
+        location: "Hà Nội, Việt Nam",
+        employmentType: "Toàn thời gian",
+        workType: "Hybrid",
+        summary: "Xây dựng các hệ thống phát hiện bất thường đa phương thức bằng AI và thiết lập quy trình đánh giá khắt khe cho các mô hình ngôn ngữ lớn (LLMs).",
+        projects: [
+          {
+            name: "AI KC IoT",
+            description: "Hệ thống phát hiện đa phương thức cho bề mặt tấn công IoT, bao gồm tấn công từ chối dịch vụ (DDoS), dò cổng và brute-force.",
+            responsibilities: [
+              "Thiết kế và huấn luyện các mô hình phát hiện rủi ro đạt độ chính xác 98,4% trên 4 nhóm tấn công chính",
+              "Tiền xử lý và chuẩn hóa dữ liệu viễn trắc đa dạng để lập bản đồ các hành vi đe dọa trực tuyến",
+              "Tối ưu hóa hiệu năng suy luận (inference) đảm bảo tốc độ phát hiện theo thời gian thực trên các thiết bị tài nguyên thấp"
+            ]
+          },
+          {
+            name: "Nền tảng Đánh giá Model AI (LLM Evaluation)",
+            description: "Hệ thống benchmark và quy trình đánh giá định lượng chuyên sâu cho các AI Models & LLMs áp dụng vào thực tế.",
+            responsibilities: [
+              "Thiết lập bộ tiêu chí đánh giá chuyên biệt nhằm phát hiện ảo giác (hallucination) và đối soát độ chính xác của ngữ cảnh",
+              "Xây dựng kho dữ liệu gốc (golden datasets) và bộ test tự động để benchmark và so sánh chất lượng giữa các phiên bản model",
+              "Tích hợp đánh giá có con người tham gia (Human-in-the-loop) để liên tục tinh chỉnh (align) và cải thiện chất lượng sinh từ prompt"
             ]
           }
         ]
@@ -186,18 +186,17 @@ export const vi: typeof en = {
         institution: "PTIT",
         period: "2019 — 2024",
         focus: "Chuyên ngành hệ thống AI, hệ thống phân tán và nền tảng dữ liệu."
-      },
-      {
-        degree: "Học bổng Thuật toán & Cấu trúc Dữ liệu",
-        institution: "Samsung",
-        period: "2020 — 2021",
-        focus: "Nghiên cứu nâng cao lý thuyết đồ thị, tối ưu hóa và giải quyết bài toán quy mô lớn."
       }
     ],
     certTag: "Chứng chỉ",
     viewPdf: "Xem PDF ↗",
     digitalCredentials: "Chứng chỉ Kỹ thuật số",
     certificates: [
+      {
+        title: "Học bổng Thuật toán & Cấu trúc Dữ liệu",
+        issuer: "Samsung",
+        description: "Nghiên cứu nâng cao lý thuyết đồ thị, tối ưu hóa và giải quyết bài toán quy mô lớn. (2020 — 2021)"
+      },
       {
         title: "Ubuntu và WSL",
         issuer: "Canonical",
