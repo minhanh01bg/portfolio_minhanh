@@ -1,6 +1,7 @@
 export const en = {
   sidebar: {
     role: "AI Engineer",
+    home: "Home",
     about: "About",
     experience: "Experience",
     education: "Education",
@@ -10,8 +11,8 @@ export const en = {
   },
   about: {
     greeting: "Hi, I'm Vũ Minh Anh",
-    location: "Ha Noi, Vietnam",
-    status: "Open to work",
+    location: "Based in Hanoi, Vietnam 🇻🇳",
+    status: "Available for work",
     description: "I specialize in building intelligent systems that prioritize performance and user experience. From complex RAG architectures to polished interfaces, I deliver end-to-end AI solutions.",
     stackTag: "icon",
     skillsTitle: "Skills & Technologies",
@@ -71,34 +72,6 @@ export const en = {
       },
       {
         role: "AI Engineer",
-        company: "AI Soft",
-        location: "Hanoi, Vietnam",
-        employmentType: "Full-time",
-        workType: "Hybrid",
-        summary: "Focused on building multimodal AI detection systems and establishing rigorous evaluation regimes for production LLMs.",
-        projects: [
-          {
-            name: "AI KC IoT",
-            description: "Multimodal detection system for IoT attack surfaces including brute-force, port scanning, and DDoS vectors.",
-            responsibilities: [
-              "Designed and trained detection models achieving 98.4% accuracy across 4 major attack classes",
-              "Processed and normalized complex multimodal telemetry data to capture diverse threat vectors",
-              "Optimized inference pipelines to ensure low-latency detection on constrained edge devices"
-            ]
-          },
-          {
-            name: "LLM Evaluation Framework",
-            description: "Comprehensive quantitative benchmark and evaluation pipeline for testing Large Language Models in domain-specific tasks.",
-            responsibilities: [
-              "Established rigorous evaluation methodologies to detect hallucinations, response consistency, and context retrieval accuracy",
-              "Curated high-quality golden datasets and test suites for systematic automated LLM benchmarking",
-              "Designed human-in-the-loop (HITL) review interfaces for continuous model alignment and prompt optimization"
-            ]
-          }
-        ]
-      },
-      {
-        role: "AI Engineer",
         company: "Hyperlogy",
         location: "Hanoi, Vietnam",
         employmentType: "Full-time",
@@ -121,6 +94,34 @@ export const en = {
               "Developed a robust facial recognition pipeline capable of identifying medical staff accurately under varied lighting and masking conditions",
               "Optimized edge deployment to achieve sub-second latency for continuous multi-face stream processing",
               "Engineered secure logging and attendance tracking integration with the hospital's central HR system"
+            ]
+          }
+        ]
+      },
+      {
+        role: "AI Engineer",
+        company: "AI Soft",
+        location: "Hanoi, Vietnam",
+        employmentType: "Full-time",
+        workType: "Hybrid",
+        summary: "Focused on building multimodal AI detection systems and establishing rigorous evaluation regimes for production LLMs.",
+        projects: [
+          {
+            name: "AI KC IoT",
+            description: "Multimodal detection system for IoT attack surfaces including brute-force, port scanning, and DDoS vectors.",
+            responsibilities: [
+              "Designed and trained detection models achieving 98.4% accuracy across 4 major attack classes",
+              "Processed and normalized complex multimodal telemetry data to capture diverse threat vectors",
+              "Optimized inference pipelines to ensure low-latency detection on constrained edge devices"
+            ]
+          },
+          {
+            name: "LLM Evaluation Framework",
+            description: "Comprehensive quantitative benchmark and evaluation pipeline for testing Large Language Models in domain-specific tasks.",
+            responsibilities: [
+              "Established rigorous evaluation methodologies to detect hallucinations, response consistency, and context retrieval accuracy",
+              "Curated high-quality golden datasets and test suites for systematic automated LLM benchmarking",
+              "Designed human-in-the-loop (HITL) review interfaces for continuous model alignment and prompt optimization"
             ]
           }
         ]
@@ -184,18 +185,17 @@ export const en = {
         institution: "PTIT",
         period: "2019 — 2024",
         focus: "Specialized in AI systems, distributed computing, and data platforms."
-      },
-      {
-        degree: "Algorithm & Data Structure Fellowship",
-        institution: "Samsung",
-        period: "2020 — 2021",
-        focus: "Advanced graph theory, optimization, and large-scale problem solving."
       }
     ],
     certTag: "Certification",
     viewPdf: "View PDF ↗",
     digitalCredentials: "Digital Credentials",
     certificates: [
+      {
+        title: "Algorithm & Data Structure",
+        issuer: "Samsung",
+        description: "Advanced graph theory, optimization, and large-scale problem solving. (2020 — 2021)"
+      },
       {
         title: "Ubuntu with WSL",
         issuer: "Canonical",

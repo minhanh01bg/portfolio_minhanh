@@ -11,7 +11,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { useSearchParams, useRouter, usePathname } from "next/navigation"
 
 const sections = [
-  { id: "about", label: "About", slides: [About] },
+  { id: "home", label: "Home", slides: [About] },
   { id: "experience", label: "Experience", slides: [Experience] },
   { id: "education", label: "Education", slides: [Education] },
   { id: "projects", label: "Projects", slides: [ProjectsIntro, ProjectsShowcase] },

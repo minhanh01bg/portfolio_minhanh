@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { cardItem, sectionContainer } from "@/lib/motion"
 import {
@@ -13,7 +14,6 @@ import {
   ExternalLink,
   ChevronDown,
   ChevronUp,
-  Layout,
   Briefcase
 } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
@@ -145,10 +145,10 @@ const timeline: ExperienceItem[] = [
 export default function Experience() {
   const { t } = useLanguage()
 
-  const localizedTimeline = (t("experience.items") as any[]).map((item, idx) => ({
+  const localizedTimeline = (t("experience.items") as ExperienceItem[]).map((item, idx) => ({
     ...item,
     companyLogo: timeline[idx]?.companyLogo,
-    projects: item.projects.map((proj: any, pIdx: number) => ({
+    projects: item.projects.map((proj: ExperienceProject, pIdx: number) => ({
       ...proj,
       tech: timeline[idx]?.projects[pIdx]?.tech || [],
       href: timeline[idx]?.projects[pIdx]?.href
@@ -195,7 +195,7 @@ function ExperienceCard({ item, isFirst }: { item: ExperienceItem; isFirst: bool
           <div className="flex items-start gap-5">
             <div className="relative h-16 w-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden shadow-inner shrink-0 group-hover:border-emerald-500/30 transition-colors">
               {item.companyLogo ? (
-                <img src={item.companyLogo} alt={item.company} className="h-full w-full object-contain" />
+                <Image src={item.companyLogo} alt={item.company} fill className="object-contain" />
               ) : (
                 <Briefcase className="w-8 h-8 text-white/20 group-hover:text-slate-400/50 transition-colors" />
               )}

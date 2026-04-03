@@ -13,7 +13,7 @@ import { useLanguage } from "@/contexts/LanguageContext"
 
 type NavItem = { id: string; label: string }
 const navItems: NavItem[] = [
-  { id: "about", label: "About" },
+  { id: "home", label: "Home" },
   { id: "experience", label: "Experience" },
   { id: "education", label: "Education" },
   { id: "projects", label: "Projects" },
@@ -81,7 +81,7 @@ export default function Sidebar({ activeSection, onSelect }: SidebarProps) {
             <path d="M5 10v10h14V10" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         )
-      case "about":
+      case "home":
         return (
           <svg viewBox="0 0 24 24" className={common} fill="none">
             <defs>

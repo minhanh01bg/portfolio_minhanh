@@ -55,7 +55,7 @@ const slideVariant: Variants = {
 
 export function ProjectsIntro() {
   const { t } = useLanguage()
-  const allProjects = t("projects.items") as any[]
+  const allProjects = t("projects.items") as Project[]
   const firstGroup = allProjects.slice(0, 3).map((p, i) => ({
     ...p,
     tags: projects[i]?.tags || [],
@@ -85,7 +85,7 @@ export function ProjectsIntro() {
 
 export function ProjectsShowcase() {
   const { t } = useLanguage()
-  const allProjects = t("projects.items") as any[]
+  const allProjects = t("projects.items") as Project[]
   const secondGroup = allProjects.slice(3).map((p, i) => ({
     ...p,
     tags: projects[i + 3]?.tags || [],

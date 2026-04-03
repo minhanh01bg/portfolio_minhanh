@@ -73,7 +73,7 @@ export default function About() {
   const { t } = useLanguage()
 
   return (
-    <section id="about" className="w-full max-w-[72rem] mx-auto px-2 sm:px-6 lg:px-8 py-12 scroll-mt-24">
+    <section id="home" className="w-full max-w-[72rem] mx-auto px-2 sm:px-6 lg:px-8 py-12 scroll-mt-24">
       <motion.div variants={sectionContainer} initial="hidden" animate="visible" className="space-y-20">
 
         {/* Header Section */}
@@ -83,12 +83,12 @@ export default function About() {
               <h1 className="text-5xl sm:text-7xl font-bold leading-[1.05] text-foreground dark:text-white tracking-tight">
                 {t("about.greeting")}
               </h1>
-              <div className="flex flex-wrap gap-2 pt-1">
-                <span className="inline-flex items-center gap-2 rounded-full bg-black/5 dark:bg-white/[0.04] px-4 py-2 text-sm text-foreground/80 dark:text-white/80 border border-black/5 dark:border-white/10 backdrop-blur-md hover:bg-black/10 dark:hover:bg-white/[0.08] hover:border-black/10 dark:hover:border-white/15 transition-all cursor-default font-medium">
+              <div className="flex flex-wrap items-center gap-6 pt-1">
+                <span className="inline-flex items-center gap-2 text-[15px] sm:text-base text-foreground/60 dark:text-white/60 font-medium">
                   <LocationIcon />
                   {t("about.location")}
                 </span>
-                <span className="inline-flex items-center gap-2 rounded-full bg-black/5 dark:bg-white/[0.04] px-4 py-2 text-sm text-foreground/80 dark:text-white/80 border border-black/5 dark:border-white/10 backdrop-blur-md hover:bg-black/10 dark:hover:bg-white/[0.08] hover:border-black/10 dark:hover:border-white/15 transition-all cursor-default font-medium">
+                <span className="inline-flex items-center gap-2 text-[15px] sm:text-base text-foreground/60 dark:text-white/60 font-medium">
                   <StatusIcon />
                   {t("about.status")}
                 </span>
@@ -163,7 +163,7 @@ export default function About() {
 
 function LocationIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-violet-600 dark:text-violet-300">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-foreground/60 dark:text-white/60">
       <path d="M12 2C7 2 3 6 3 11c0 6 9 11 9 11s9-5 9-11c0-5-4-9-9-9z" stroke="currentColor" strokeWidth="1.5" />
       <circle cx="12" cy="11" r="3" stroke="currentColor" strokeWidth="1.5" />
     </svg>
@@ -172,8 +172,9 @@ function LocationIcon() {
 
 function StatusIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" className="text-emerald-600 dark:text-emerald-300">
-      <path d="M5 12l5 5L19 8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="text-[#10B981] dark:text-[#34D399]">
+      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
+      <path stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" d="M8 12l3 3 5-6" />
     </svg>
   )
 }
