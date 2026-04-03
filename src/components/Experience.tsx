@@ -245,7 +245,7 @@ function ExperienceCard({ item, isFirst }: { item: ExperienceItem; isFirst: bool
 
 function ProjectEntry({ project }: { project: ExperienceProject }) {
   const { t } = useLanguage()
-  const [showRes, setShowRes] = useState(true)
+  const [showRes, setShowRes] = useState(false)
 
   return (
     <div className="relative group/project border-l-2 border-slate-200 dark:border-white/5 pl-8 ml-1 transition-colors hover:border-slate-500/20">
