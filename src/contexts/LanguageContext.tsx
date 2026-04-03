@@ -10,6 +10,7 @@ type Translations = typeof en;
 interface LanguageContextType {
   lang: Language;
   setLang: (lang: Language) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   t: (path: string) => any;
   dict: Translations;
 }
@@ -35,6 +36,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   const t = (path: string) => {
     const keys = path.split(".");
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let current: any = dict;
     for (const key of keys) {
       if (current === undefined || current[key] === undefined) return path;

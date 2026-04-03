@@ -16,20 +16,7 @@ type EducationItem = {
   focus: string
 }
 
-const education: EducationItem[] = [
-  {
-    degree: "B.Eng Information Technology",
-    institution: "PTIT",
-    period: "2019 — 2024",
-    focus: "Specialized in AI systems, distributed computing, and data platforms.",
-  },
-  {
-    degree: "Algorithm & Data Structure",
-    institution: "Samsung",
-    period: "2020 — 2021",
-    focus: "Advanced graph theory, optimization, and large-scale problem solving.",
-  },
-]
+
 
 type CertificationItem = {
   title: string
@@ -68,8 +55,8 @@ export default function Education() {
   useEffect(() => {
     setMounted(true)
   }, [])
-  const localizedEducation = t("education.items") as any[]
-  const localizedCertifications = t("education.certificates") as any[]
+  const localizedEducation = t("education.items") as EducationItem[]
+  const localizedCertifications = t("education.certificates") as CertificationItem[]
 
   const finalCerts = localizedCertifications.map((cert, idx) => ({
     ...cert,
