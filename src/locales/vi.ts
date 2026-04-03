@@ -155,24 +155,6 @@ export const vi: typeof en = {
             ]
           }
         ]
-      },
-      {
-        role: "Kỹ sư Full Stack",
-        company: "Startup Công nghệ (Dự án)",
-        location: "Hà Nội, Việt Nam",
-        employmentType: "Theo dự án",
-        workType: "Hybrid",
-        summary: "Cung cấp kiến trúc web dễ dàng mở rộng và thực hiện các tác vụ kỹ sư dữ liệu.",
-        projects: [
-          {
-            name: "Phân tích E-Commerce",
-            description: "Phát triển bảng điều khiển hiệu suất bán hàng thời gian thực theo dõi giao dịch hơn 50.000$/tháng.",
-            responsibilities: [
-              "Trực quan hóa dữ liệu với D3.js và Chart.js",
-              "Xây dựng đường ống (pipeline) thu thập dữ liệu"
-            ]
-          }
-        ]
       }
     ]
   },

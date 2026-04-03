@@ -153,24 +153,6 @@ export const en = {
             ]
           }
         ]
-      },
-      {
-        role: "Full Stack Engineer",
-        company: "Tech Startups (Project Based)",
-        location: "Hanoi, Vietnam",
-        employmentType: "Project-based",
-        workType: "Hybrid",
-        summary: "Delivered scalable web architectures and performed data engineering tasks.",
-        projects: [
-          {
-            name: "E-Commerce Analytics",
-            description: "Developed a real-time sales dashboard tracking $50k+ in monthly transactions.",
-            responsibilities: [
-              "Visualized data using D3.js and Chart.js",
-              "Built data ingestion pipelines"
-            ]
-          }
-        ]
       }
     ]
   },

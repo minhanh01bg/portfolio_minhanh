@@ -120,26 +120,6 @@ const timeline: ExperienceItem[] = [
       }
     ],
   },
-  {
-    role: "Full Stack Engineer",
-    company: "Tech Startups (Project Based)",
-    period: "2021 — 2023",
-    location: "Hanoi, Vietnam",
-    workType: "Hybrid",
-    employmentType: "Project-based",
-    summary: "Delivered scalable web architectures and performed data engineering tasks.",
-    projects: [
-      {
-        name: "E-Commerce Analytics",
-        tech: ["Node.js", "MongoDB", "Python", "D3.js"],
-        description: "Developed a real-time sales dashboard tracking $50k+ in monthly transactions.",
-        responsibilities: [
-          "Visualized data using D3.js and Chart.js",
-          "Built data ingestion pipelines"
-        ]
-      }
-    ],
-  },
 ]
 
 export default function Experience() {
