@@ -24,7 +24,7 @@ const education: EducationItem[] = [
     focus: "Specialized in AI systems, distributed computing, and data platforms.",
   },
   {
-    degree: "Algorithm & Data Structure Fellowship",
+    degree: "Algorithm & Data Structure",
     institution: "Samsung",
     period: "2020 — 2021",
     focus: "Advanced graph theory, optimization, and large-scale problem solving.",
@@ -41,7 +41,7 @@ type CertificationItem = {
 
 const certifications: CertificationItem[] = [
   {
-    title: "Algorithm & Data Structure Fellowship",
+    title: "Algorithm & Data Structure",
     issuer: "Samsung",
     description: "Advanced graph theory, optimization, and large-scale problem solving.",
   },

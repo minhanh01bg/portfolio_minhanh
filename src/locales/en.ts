@@ -1,6 +1,7 @@
 export const en = {
   sidebar: {
     role: "AI Engineer",
+    home: "Home",
     about: "About",
     experience: "Experience",
     education: "Education",
@@ -10,8 +11,8 @@ export const en = {
   },
   about: {
     greeting: "Hi, I'm Vũ Minh Anh",
-    location: "Ha Noi, Vietnam",
-    status: "Open to work",
+    location: "Based in Hanoi, Vietnam 🇻🇳",
+    status: "Available for work",
     description: "I specialize in building intelligent systems that prioritize performance and user experience. From complex RAG architectures to polished interfaces, I deliver end-to-end AI solutions.",
     stackTag: "icon",
     skillsTitle: "Skills & Technologies",
@@ -191,7 +192,7 @@ export const en = {
     digitalCredentials: "Digital Credentials",
     certificates: [
       {
-        title: "Algorithm & Data Structure Fellowship",
+        title: "Algorithm & Data Structure",
         issuer: "Samsung",
         description: "Advanced graph theory, optimization, and large-scale problem solving. (2020 — 2021)"
       },

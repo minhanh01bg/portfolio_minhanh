@@ -3,6 +3,7 @@ import { en } from './en';
 export const vi: typeof en = {
   sidebar: {
     role: "Kỹ sư AI",
+    home: "Trang chủ",
     about: "Giới thiệu",
     experience: "Kinh nghiệm",
     education: "Học vấn",
@@ -12,8 +13,8 @@ export const vi: typeof en = {
   },
   about: {
     greeting: "Hi, I'm Vũ Minh Anh",
-    location: "Hà Nội, Việt Nam",
-    status: "Đang tìm việc",
+    location: "Làm việc tại Hà Nội, Việt Nam 🇻🇳",
+    status: "Sẵn sàng làm việc",
     description: "Tôi chuyên xây dựng các hệ thống trí tuệ nhân tạo (AI) thông minh với hiệu năng và trải nghiệm người dùng đặt lên hàng đầu. Từ các kiến trúc RAG tĩnh tạp đến các giao diện hoàn thiện, tôi cung cấp các giải pháp AI toàn diện từ đầu đến cuối.",
     stackTag: "icon",
     skillsTitle: "Kỹ năng & Công nghệ",
@@ -193,7 +194,7 @@ export const vi: typeof en = {
     digitalCredentials: "Chứng chỉ Kỹ thuật số",
     certificates: [
       {
-        title: "Học bổng Thuật toán & Cấu trúc Dữ liệu",
+        title: "Cấu trúc dữ liệu và giải thuật",
         issuer: "Samsung",
         description: "Nghiên cứu nâng cao lý thuyết đồ thị, tối ưu hóa và giải quyết bài toán quy mô lớn. (2020 — 2021)"
       },
