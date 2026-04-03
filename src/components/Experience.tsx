@@ -167,8 +167,8 @@ export default function Experience() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-400 text-xs font-medium uppercase tracking-wider">
             {t("experience.tag")}
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold text-white tracking-tight">{t("experience.title")}</h2>
-          <p className="text-lg text-white/50 max-w-2xl leading-relaxed">
+          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white tracking-tight">{t("experience.title")}</h2>
+          <p className="text-lg text-slate-500 dark:text-white/50 max-w-2xl leading-relaxed">
             {t("experience.description")}
           </p>
         </header>
@@ -189,43 +189,43 @@ function ExperienceCard({ item, isFirst }: { item: ExperienceItem; isFirst: bool
       variants={cardItem}
       className={`group relative ${isFirst ? 'opacity-100' : 'opacity-90 hover:opacity-100'} transition-opacity duration-300`}
     >
-      <div className="relative rounded-3xl border border-white/10 bg-white/[0.02] p-8 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:border-white/20 hover:bg-white/[0.04] shadow-2xl">
+      <div className="relative rounded-3xl border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/[0.02] p-8 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:border-slate-200 dark:hover:border-white/20 hover:bg-slate-100 dark:hover:bg-white/[0.04] shadow-2xl">
         {/* Company Header */}
-        <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-8 border-b border-white/5">
+        <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-8 border-b border-slate-200 dark:border-white/5">
           <div className="flex items-start gap-5">
-            <div className="relative h-16 w-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden shadow-inner shrink-0 group-hover:border-emerald-500/30 transition-colors">
+            <div className="relative h-16 w-16 rounded-2xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center overflow-hidden shadow-inner shrink-0 group-hover:border-emerald-500/30 transition-colors">
               {item.companyLogo ? (
                 <Image src={item.companyLogo} alt={item.company} fill className="object-contain" />
               ) : (
-                <Briefcase className="w-8 h-8 text-white/20 group-hover:text-slate-400/50 transition-colors" />
+                <Briefcase className="w-8 h-8 text-slate-500 dark:text-white/20 group-hover:text-slate-400/50 transition-colors" />
               )}
             </div>
             <div className="space-y-1">
-              <h3 className="text-3xl font-bold text-white tracking-tight">{item.company}</h3>
-              <p className="text-xl font-semibold text-white/80">{item.role}</p>
+              <h3 className="text-3xl font-bold text-slate-900 dark:text-white tracking-tight">{item.company}</h3>
+              <p className="text-xl font-semibold text-slate-500 dark:text-white/80">{item.role}</p>
             </div>
           </div>
 
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-            <div className="flex items-center gap-2 text-sm text-white/40 font-medium">
-              <Calendar className="w-4 h-4 text-white/30" />
+            <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-white/40 font-medium">
+              <Calendar className="w-4 h-4 text-slate-500 dark:text-white/30" />
               <span>{item.period}</span>
             </div>
             {item.location && (
-              <div className="flex items-center gap-2 text-sm text-white/40 font-medium">
-                <MapPin className="w-4 h-4 text-white/30" />
+              <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-white/40 font-medium">
+                <MapPin className="w-4 h-4 text-slate-500 dark:text-white/30" />
                 <span>{item.location}</span>
               </div>
             )}
             {item.employmentType && (
-              <div className="flex items-center gap-2 text-sm text-white/40 font-medium">
-                <Clock className="w-4 h-4 text-white/30" />
+              <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-white/40 font-medium">
+                <Clock className="w-4 h-4 text-slate-500 dark:text-white/30" />
                 <span>{item.employmentType}</span>
               </div>
             )}
             {item.workType && (
-              <div className="flex items-center gap-2 text-xs px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-white/40 font-semibold uppercase tracking-wider">
-                <Monitor className="w-3.5 h-3.5 text-white/30 mr-1.5" />
+              <div className="flex items-center gap-2 text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-500 dark:text-white/40 font-semibold uppercase tracking-wider">
+                <Monitor className="w-3.5 h-3.5 text-slate-500 dark:text-white/30 mr-1.5" />
                 {item.workType}
               </div>
             )}
@@ -248,13 +248,13 @@ function ProjectEntry({ project }: { project: ExperienceProject }) {
   const [showRes, setShowRes] = useState(true)
 
   return (
-    <div className="relative group/project border-l-2 border-white/5 pl-8 ml-1 transition-colors hover:border-slate-500/20">
+    <div className="relative group/project border-l-2 border-slate-200 dark:border-white/5 pl-8 ml-1 transition-colors hover:border-slate-500/20">
       <div className="flex flex-col gap-5">
         {/* Project Title Row */}
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <span className="h-2.5 w-2.5 rounded-sm bg-emerald-500 rotate-45 shadow-[0_0_10px_rgba(16,185,129,0.3)]" />
-            <h4 className="text-xl font-bold text-white group-hover/project:text-white transition-colors tracking-tight">
+            <h4 className="text-xl font-bold text-slate-900 dark:text-white group-hover/project:text-slate-900 dark:project:text-white transition-colors tracking-tight">
               {project.name}
             </h4>
           </div>
@@ -263,7 +263,7 @@ function ProjectEntry({ project }: { project: ExperienceProject }) {
               href={project.href}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-1.5 text-xs font-bold text-white/40 hover:text-white uppercase tracking-widest transition-colors duration-300"
+              className="flex items-center gap-1.5 text-xs font-bold text-slate-500 dark:text-white/40 hover:text-slate-900 dark:hover:text-white uppercase tracking-widest transition-colors duration-300"
             >
               <span>{t("experience.viewProject")}</span>
               <ExternalLink className="w-3.5 h-3.5" />
@@ -271,19 +271,19 @@ function ProjectEntry({ project }: { project: ExperienceProject }) {
           )}
         </div>
 
-        <p className="text-base text-white/50 leading-relaxed max-w-4xl">
+        <p className="text-base text-slate-500 dark:text-white/50 leading-relaxed max-w-4xl">
           {project.description}
         </p>
 
         {/* Tech Stack */}
         <div className="space-y-3">
-          <div className="flex items-center gap-2 text-xs font-bold text-emerald-400 group-hover/project:text-emerald-300 transition-colors uppercase tracking-[0.2em]">
+          <div className="flex items-center gap-2 text-xs font-bold text-emerald-600 dark:text-emerald-400 group-hover/project:text-emerald-600 dark:project:text-emerald-300 transition-colors uppercase tracking-[0.2em]">
             <Code2 className="w-4 h-4" />
             <span>{t("experience.technologies")}</span>
           </div>
           <div className="flex flex-wrap gap-x-4 gap-y-2">
             {project.tech.map((t) => (
-              <span key={t} className="text-sm text-white/30 font-medium hover:text-white/60 transition-colors">
+              <span key={t} className="text-sm text-slate-500 dark:text-white/30 font-medium hover:text-slate-500 dark:hover:text-white/60 transition-colors">
                 {t}
               </span>
             ))}
@@ -295,7 +295,7 @@ function ProjectEntry({ project }: { project: ExperienceProject }) {
           <div className="space-y-4 pt-2">
             <button
               onClick={() => setShowRes(!showRes)}
-              className="flex items-center gap-2 text-xs font-bold text-sky-400 group/btn transition-colors hover:text-sky-300"
+              className="flex items-center gap-2 text-xs font-bold text-sky-600 dark:text-sky-400 group/btn transition-colors hover:text-sky-600 dark:hover:text-sky-300"
             >
               {showRes ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
               <span className="uppercase tracking-widest">{showRes ? t("experience.hideRes") : t("experience.showRes")}</span>
@@ -311,12 +311,12 @@ function ProjectEntry({ project }: { project: ExperienceProject }) {
                   className="overflow-hidden"
                 >
                   <div className="flex items-center gap-4 mb-4">
-                    <BadgeCheck className="w-4 h-4 text-sky-400/60" />
-                    <span className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em]">{t("experience.keyRes")}</span>
+                    <BadgeCheck className="w-4 h-4 text-sky-600 dark:text-sky-400/60" />
+                    <span className="text-[10px] font-bold text-slate-500 dark:text-white/30 uppercase tracking-[0.2em]">{t("experience.keyRes")}</span>
                   </div>
                   <ul className="grid md:grid-cols-2 gap-x-12 gap-y-3">
                     {project.responsibilities.map((resp, i) => (
-                      <li key={i} className="relative text-sm text-white/40 leading-relaxed pl-5 transition-colors hover:text-white">
+                      <li key={i} className="relative text-sm text-slate-500 dark:text-white/40 leading-relaxed pl-5 transition-colors hover:text-slate-900 dark:hover:text-white">
                         <span className="absolute left-0 top-[0.7em] h-1.5 w-1.5 rounded-full bg-emerald-500/30" />
                         {resp}
                       </li>
