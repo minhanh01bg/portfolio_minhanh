@@ -16,16 +16,22 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "AI KC IoT",
-    description: "Multimodal detection system for IoT attack surfaces including brute-force, port scanning, and DDoS vectors.",
-    tags: ["PyTorch", "RNN/LSTM", "Anomaly detection", "SMOTE"],
-    impact: "98.4% detection accuracy across 4 major attack classes.",
+    title: "Enjoy reading",
+    description: "",
+    tags: ["FastAPI", "PostgreSQL", "AI Recommendation", "Chatbot"],
+    impact: "",
   },
   {
     title: "AI Resume Parser",
     description: "LLM pipeline that ingests PDFs, structures candidate profiles, and ranks via bespoke evaluation loops.",
     tags: ["LangChain", "FastAPI", "Postgres", "RAG"],
     impact: "Cuts recruiter triage time by 70%.",
+  },
+  {
+    title: "AI KC IoT",
+    description: "Multimodal detection system for IoT attack surfaces including brute-force, port scanning, and DDoS vectors.",
+    tags: ["PyTorch", "RNN/LSTM", "Anomaly detection", "SMOTE"],
+    impact: "98.4% detection accuracy across 4 major attack classes.",
   },
   {
     title: "AI eKYC for Banking",
