@@ -277,7 +277,7 @@ function ProjectEntry({ project }: { project: ExperienceProject }) {
 
         {/* Tech Stack */}
         <div className="space-y-3">
-          <div className="flex items-center gap-2 text-xs font-bold text-emerald-600 dark:text-emerald-400 group-hover/project:text-emerald-600 dark:project:text-emerald-300 transition-colors uppercase tracking-[0.2em]">
+          <div className="flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-white/80 transition-colors uppercase tracking-[0.2em]">
             <Code2 className="w-4 h-4" />
             <span>{t("experience.technologies")}</span>
           </div>
@@ -295,7 +295,7 @@ function ProjectEntry({ project }: { project: ExperienceProject }) {
           <div className="space-y-4 pt-2">
             <button
               onClick={() => setShowRes(!showRes)}
-              className="flex items-center gap-2 text-xs font-bold text-sky-600 dark:text-sky-400 group/btn transition-colors hover:text-sky-600 dark:hover:text-sky-300"
+              className="flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-white/60 group/btn transition-colors hover:text-slate-600 dark:hover:text-white"
             >
               {showRes ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
               <span className="uppercase tracking-widest">{showRes ? t("experience.hideRes") : t("experience.showRes")}</span>
@@ -311,8 +311,8 @@ function ProjectEntry({ project }: { project: ExperienceProject }) {
                   className="overflow-hidden"
                 >
                   <div className="flex items-center gap-4 mb-4">
-                    <BadgeCheck className="w-4 h-4 text-sky-600 dark:text-sky-400/60" />
-                    <span className="text-[10px] font-bold text-slate-500 dark:text-white/30 uppercase tracking-[0.2em]">{t("experience.keyRes")}</span>
+                    <BadgeCheck className="w-4 h-4 text-slate-900 dark:text-white/60" />
+                    <span className="text-[10px] font-bold text-slate-900 dark:text-white/40 uppercase tracking-[0.2em]">{t("experience.keyRes")}</span>
                   </div>
                   <ul className="grid md:grid-cols-2 gap-x-12 gap-y-3">
                     {project.responsibilities.map((resp, i) => (
