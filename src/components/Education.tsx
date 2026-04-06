@@ -73,9 +73,9 @@ export default function Education() {
         className="space-y-10"
       >
         <header className="space-y-3">
-          <p className="text-sm uppercase tracking-[0.3em] text-white/60">{t("education.tag")}</p>
-          <h2 className="text-3xl sm:text-4xl font-semibold text-white">{t("education.title")}</h2>
-          <p className="text-base text-white/65 max-w-3xl">
+          <p className="text-sm uppercase tracking-[0.3em] text-slate-500 dark:text-white/60">{t("education.tag")}</p>
+          <h2 className="text-3xl sm:text-4xl font-semibold text-slate-900 dark:text-white">{t("education.title")}</h2>
+          <p className="text-base text-slate-500 dark:text-white/65 max-w-3xl">
             {t("education.description")}
           </p>
         </header>
@@ -85,15 +85,15 @@ export default function Education() {
             <motion.article
               key={item.degree}
               variants={cardItem}
-              className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur"
+              className="rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/[0.04] p-6 backdrop-blur"
             >
-              <div className="flex items-center justify-between text-white/70">
+              <div className="flex items-center justify-between text-slate-500 dark:text-white/70">
                 <span className="text-xs uppercase tracking-[0.3em]">{item.period}</span>
-                <span className="text-xs rounded-full border border-white/20 px-3 py-1 text-white/60">{t("education.focusLabel")}</span>
+                <span className="text-xs rounded-full border border-slate-200 dark:border-white/20 px-3 py-1 text-slate-500 dark:text-white/60">{t("education.focusLabel")}</span>
               </div>
-              <h3 className="mt-4 text-2xl font-semibold text-white">{item.degree}</h3>
-              <p className="text-sm text-white/70">{item.institution}</p>
-              <p className="mt-4 text-sm text-white/75">{item.focus}</p>
+              <h3 className="mt-4 text-2xl font-semibold text-slate-900 dark:text-white">{item.degree}</h3>
+              <p className="text-sm text-slate-500 dark:text-white/70">{item.institution}</p>
+              <p className="mt-4 text-sm text-slate-500 dark:text-white/75">{item.focus}</p>
             </motion.article>
           ))}
         </div>
@@ -103,33 +103,33 @@ export default function Education() {
             <motion.div
               key={cert.title}
               variants={cardItem}
-              className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur h-full"
+              className="rounded-2xl border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/[0.04] p-6 backdrop-blur h-full"
             >
               <div className="flex flex-col gap-6 h-full">
                 <div className="space-y-3 flex-1">
                   <div className="flex items-center justify-between">
-                    <p className="text-xs uppercase tracking-[0.3em] text-white/60">{t("education.certTag")}</p>
+                    <p className="text-xs uppercase tracking-[0.3em] text-slate-500 dark:text-white/60">{t("education.certTag")}</p>
                     {cert.link && (
                       <a
                         href={cert.link}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-[10px] uppercase tracking-[0.2em] text-white/40 hover:text-white transition-colors"
+                        className="text-[10px] uppercase tracking-[0.2em] text-slate-500 dark:text-white/40 hover:text-slate-900 dark:hover:text-white transition-colors"
                       >
                         {t("education.viewPdf")}
                       </a>
                     )}
                   </div>
-                  <h3 className="text-2xl font-semibold text-white leading-tight">{cert.title}</h3>
-                  <p className="text-white/60 text-xs italic">{cert.issuer}</p>
-                  <p className="text-white/70 text-sm leading-relaxed">
+                  <h3 className="text-2xl font-semibold text-slate-900 dark:text-white leading-tight">{cert.title}</h3>
+                  <p className="text-slate-500 dark:text-white/60 text-xs italic">{cert.issuer}</p>
+                  <p className="text-slate-500 dark:text-white/70 text-sm leading-relaxed">
                     {cert.description}
                   </p>
                 </div>
                 {cert.image && (
                   <button
                     onClick={() => setSelectedImage(cert.image!)}
-                    className="group/btn relative overflow-hidden rounded-xl border border-white/15 bg-black/10 dark:bg-black/40 aspect-[3/2] cursor-zoom-in w-full"
+                    className="group/btn relative overflow-hidden rounded-xl border border-slate-200 dark:border-white/15 bg-black/10 dark:bg-black/40 aspect-[3/2] cursor-zoom-in w-full"
                   >
                     <Image
                       src={cert.image}
@@ -138,19 +138,19 @@ export default function Education() {
                       className="object-cover transition-all duration-500 group-hover/btn:scale-105 group-hover/btn:opacity-90"
                     />
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/btn:opacity-100 transition-opacity bg-black/20 backdrop-blur-[2px]">
-                      <div className="bg-white/20 p-2 rounded-full border border-white/20">
-                        <ZoomIn className="w-5 h-5 text-white shadow-sm" />
+                      <div className="bg-slate-100 dark:bg-white/20 p-2 rounded-full border border-slate-200 dark:border-white/20">
+                        <ZoomIn className="w-5 h-5 text-slate-900 dark:text-white shadow-sm" />
                       </div>
                     </div>
                   </button>
                 )}
                 {!cert.image && (
-                  <div className="flex items-center justify-center p-8 rounded-xl border border-dashed border-white/20 bg-white/[0.02]">
+                  <div className="flex items-center justify-center p-8 rounded-xl border border-dashed border-slate-200 dark:border-white/20 bg-slate-100 dark:bg-white/[0.02]">
                     <div className="text-center">
-                      <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/5 mb-3 text-white/40">
+                      <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-slate-100 dark:bg-white/5 mb-3 text-slate-500 dark:text-white/40">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></svg>
                       </div>
-                      <p className="text-xs text-white/30 tracking-wider uppercase font-medium">{t("education.digitalCredentials")}</p>
+                      <p className="text-xs text-slate-500 dark:text-white/30 tracking-wider uppercase font-medium">{t("education.digitalCredentials")}</p>
                     </div>
                   </div>
                 )}
@@ -176,7 +176,7 @@ export default function Education() {
                   e.stopPropagation();
                   setSelectedImage(null);
                 }}
-                className="absolute top-4 right-4 md:top-6 md:right-6 p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors z-[10000]"
+                className="absolute top-4 right-4 md:top-6 md:right-6 p-3 rounded-full bg-slate-100 dark:bg-white/10 text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-white/20 transition-colors z-[10000]"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -188,7 +188,7 @@ export default function Education() {
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
                 transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                className="relative w-[90vw] h-[80vh] max-w-5xl max-h-[800px] overflow-hidden rounded-2xl shadow-2xl border border-white/10"
+                className="relative w-[90vw] h-[80vh] max-w-5xl max-h-[800px] overflow-hidden rounded-2xl shadow-2xl border border-slate-200 dark:border-white/10"
                 onClick={(e) => e.stopPropagation()}
               >
                 <Image

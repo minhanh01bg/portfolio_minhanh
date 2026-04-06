@@ -155,24 +155,6 @@ export const vi: typeof en = {
             ]
           }
         ]
-      },
-      {
-        role: "Kỹ sư Full Stack",
-        company: "Startup Công nghệ (Dự án)",
-        location: "Hà Nội, Việt Nam",
-        employmentType: "Theo dự án",
-        workType: "Hybrid",
-        summary: "Cung cấp kiến trúc web dễ dàng mở rộng và thực hiện các tác vụ kỹ sư dữ liệu.",
-        projects: [
-          {
-            name: "Phân tích E-Commerce",
-            description: "Phát triển bảng điều khiển hiệu suất bán hàng thời gian thực theo dõi giao dịch hơn 50.000$/tháng.",
-            responsibilities: [
-              "Trực quan hóa dữ liệu với D3.js và Chart.js",
-              "Xây dựng đường ống (pipeline) thu thập dữ liệu"
-            ]
-          }
-        ]
       }
     ]
   },
@@ -217,6 +199,11 @@ export const vi: typeof en = {
     moreBuilds: "Thêm phân tích & thực nghiệm",
     footer: "Bạn có hứng thú với kiến trúc phía sau? Tôi luôn sẵn sàng trao đổi về các quyết định thiết kế và hệ thống.",
     items: [
+      {
+        title: "Enjoy reading – Web e-commerce tích hợp AI Chatbot tư vấn sản phẩm",
+        description: "Phát triển nền tảng thương mại điện tử tích hợp AI recommendation và AI chatbot tư vấn sản phẩm. Xây dựng backend bằng FastAPI, thiết kế database PostgreSQL và API cho toàn hệ thống. Triển khai AI recommendation system dựa vào thông tin người dùng.",
+        impact: "Cung cấp trải nghiệm mua sắm thông minh với tính cá nhân hóa cao."
+      },
       {
         title: "AI Resume Parser",
         description: "Đường ống LLM xử lý PDF, cấu trúc hồ sơ ứng viên, và xếp hạng thông qua vòng lặp đánh giá chuyên biệt.",

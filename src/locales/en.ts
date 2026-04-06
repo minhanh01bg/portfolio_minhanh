@@ -153,24 +153,6 @@ export const en = {
             ]
           }
         ]
-      },
-      {
-        role: "Full Stack Engineer",
-        company: "Tech Startups (Project Based)",
-        location: "Hanoi, Vietnam",
-        employmentType: "Project-based",
-        workType: "Hybrid",
-        summary: "Delivered scalable web architectures and performed data engineering tasks.",
-        projects: [
-          {
-            name: "E-Commerce Analytics",
-            description: "Developed a real-time sales dashboard tracking $50k+ in monthly transactions.",
-            responsibilities: [
-              "Visualized data using D3.js and Chart.js",
-              "Built data ingestion pipelines"
-            ]
-          }
-        ]
       }
     ]
   },
@@ -215,6 +197,11 @@ export const en = {
     moreBuilds: "More builds & experiments",
     footer: "Interested in the architecture behind these? I'm always open to discussing technical trade-offs and design decisions.",
     items: [
+      {
+        title: "Enjoy reading – E-commerce web integrated with AI Chatbot",
+        description: "Developed an e-commerce platform integrated with AI product recommendations and an AI consultation chatbot. Built the backend with FastAPI, designed the PostgreSQL database, and implemented APIs for the entire system. Deployed AI recommendation engine driven by user profiling.",
+        impact: "Delivered highly intelligent, personalized shopping and conversational experiences."
+      },
       {
         title: "AI Resume Parser",
         description: "LLM pipeline that ingests PDFs, structures candidate profiles, and ranks via bespoke evaluation loops.",
